@@ -1,5 +1,6 @@
 NAME		=	so_long
 
+# testes
 SRCS		=	main.c
 
 OBJS		=	$(SRCS:%.c=%.o)
@@ -35,4 +36,3 @@ fclean:	clean
 re:	fclean	all
 
 .PHONY:	all	clean	fclean	re
-
