@@ -17,12 +17,23 @@ MAKENOPRINT	=	make --no-print-directory
 
 MLX_PATH	=	minilibx-linux/
 
-%.o:	%.c
-	@$(COMPILER) $(FLAGS) -Iminilibx-linux -I./src -Lminilibx-linux -lmlx_Linux -c $< -o $(<:%.c=%.o)
+MLX_FLAGS	=	-Iminilibx-linux -I./src -Lminilibx-linux -lmlx_Linux  -lXext -lX11 -lm
 
-$(NAME):	$(OBJS) $(MLX_PATH)
+LFTNAME		=	libft.a
+
+LFTPATH		= ./Libft
+
+LFTFLAGS	=	-I$(LFTPATH) -L$(LFTPATH) -lft
+
+%.o:	%.c
+	@$(COMPILER) $(FLAGS) $(MLX_FLAGS) $(LFTFLAGS) -c $< -o $(<:%.c=%.o)
+
+$(NAME):	$(LFTNAME) $(OBJS) $(MLX_PATH)
 	@$(MAKENOPRINT) -C $(MLX_PATH)
-	@$(COMPILER) $(OBJS) -Lminilibx-linux -lmlx_Linux -Iminilibx-linux -lXext -lX11 -lm -o $(NAME)
+	$(COMPILER) $(OBJS) $(MLX_FLAGS) $(LFTFLAGS) -o $(NAME)
+
+$(LFTNAME):
+	@$(MAKENOPRINT) -C $(LFTPATH)
 
 all:	$(NAME)
 
@@ -31,6 +42,7 @@ clean:
 	@$(REMOVE) $(OBJS)
 
 fclean:	clean
+	@$(MAKENOPRINT) fclean -C $(LFTPATH)
 	@$(REMOVE) $(NAME)
 
 re:	fclean	all
