@@ -18,11 +18,11 @@ MAKENOPRINT	=	make --no-print-directory
 MLX_PATH	=	minilibx-linux/
 
 %.o:	%.c
-	@$(COMPILER) $(FLAGS) -I/usr/include -Iminilibx-linux -O3 -c $< -o $(<:%.c=%.o)
+	@$(COMPILER) $(FLAGS) -Iminilibx-linux -I./src -Lminilibx-linux -lmlx_Linux -c $< -o $(<:%.c=%.o)
 
 $(NAME):	$(OBJS) $(MLX_PATH)
 	@$(MAKENOPRINT) -C $(MLX_PATH)
-	@$(COMPILER) $(OBJS) -Lminilibx-linux -lmlx_Linux -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz -o $(NAME)
+	@$(COMPILER) $(OBJS) -Lminilibx-linux -lmlx_Linux -Iminilibx-linux -lXext -lX11 -lm -o $(NAME)
 
 all:	$(NAME)
 
