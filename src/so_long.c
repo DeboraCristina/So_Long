@@ -1,4 +1,4 @@
-#include <header.h>
+#include <so_long.h>
 
 
 int	update_window() //grafic or window???

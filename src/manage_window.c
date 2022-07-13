@@ -1,4 +1,4 @@
-#include <header.h>
+#include <so_long.h>
 
 void	ft_close_window(t_data *window)
 {

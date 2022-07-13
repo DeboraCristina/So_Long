@@ -1,4 +1,4 @@
-#include <header.h>
+#include <so_long.h>
 
 // key events
 int	ft_readInputKeys(int key, t_data *mlx)
