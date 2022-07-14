@@ -7,6 +7,8 @@
 # include <mlx.h> //mlx
 # include "libft.h"
 
+# define K_ESCAPE 65307
+
 typedef struct	s_data
 {
 	void	*mlx;
@@ -14,9 +16,9 @@ typedef struct	s_data
 }	t_data;
 
 // events manage
-int		ft_readInputKeys(int key, t_data *mlx);
+int	ft_readInputKeys(int key, t_data *mlx);
 
 // window manage
-void	ft_close_window(int key, t_data *mlx);
+int	ft_close_window(t_data *mlx);
 
 #endif
