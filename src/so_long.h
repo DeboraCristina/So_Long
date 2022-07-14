@@ -6,8 +6,7 @@
 # include <stdlib.h> // malloc & free & exit
 # include <mlx.h> //mlx
 # include "libft.h"
-
-# define K_ESCAPE 65307
+# include "utils.h"
 
 typedef struct	s_data
 {

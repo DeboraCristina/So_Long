@@ -24,15 +24,12 @@ LFTPATH		= ./Libft
 
 LFTFLAGS	=	-I$(LFTPATH) -L$(LFTPATH) -lft
 
-# %.o:	%.c
-# 	@$(COMPILER) $(FLAGS) $(LFTFLAGS) -c $< -o $(<:%.c=%.o)
-
 %.o:	%.c
 	@$(COMPILER) $(FLAGS) -I$(LFTPATH) -I$(MLX_PATH) -c $< -o $(<:%.c=%.o)
 
 $(NAME):	$(LFTNAME) $(OBJS) $(MLX_PATH)
 	@$(MAKENOPRINT) -C $(MLX_PATH)
-	$(COMPILER) $(OBJS) $(MLX_FLAGS) $(LFTFLAGS) -o $(NAME)
+	@$(COMPILER) $(OBJS) $(MLX_FLAGS) $(LFTFLAGS) -o $(NAME)
 
 $(LFTNAME):
 	@$(MAKENOPRINT) -C $(LFTPATH)
