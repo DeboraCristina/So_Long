@@ -8,10 +8,17 @@
 # include "libft.h"
 # include "utils.h"
 
+typedef struct	s_window
+{
+	void	*win;
+	int		width;
+	int		heigh;
+}	t_window;
+
 typedef struct	s_data
 {
-	void	*mlx;
-	void	*win;
+	void		*mlx;
+	t_window	win;
 }	t_data;
 
 // events manage
