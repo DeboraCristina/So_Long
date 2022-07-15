@@ -1,8 +1,14 @@
 NAME		=	so_long
 
-SRCS		=	src/so_long.c src/manage_window.c src/manage_events.c src/grafics_utils.c
+PATH_PREFIX	=	src/
 
-OBJS		=	$(SRCS:%.c=%.o)
+EXT_SUFFIX	=	.c
+
+SRCS		=	so_long manage_window manage_events grafics_utils
+
+FULL_SRCS	=	$(addsuffix $(EXT_SUFFIX), $(addprefix $(PATH_PREFIX), $(SRCS)))
+
+OBJS		=	$(FULL_SRCS:%.c=%.o)
 
 COMPILER	=	cc
 
