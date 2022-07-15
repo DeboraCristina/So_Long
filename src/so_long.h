@@ -15,10 +15,20 @@ typedef struct	s_window
 	int		heigh;
 }	t_window;
 
+typedef struct	s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_img;
+
 typedef struct	s_data
 {
 	void		*mlx;
 	t_window	win;
+	t_img		img; // ??????
 }	t_data;
 
 // events manage
@@ -30,8 +40,10 @@ int	ft_close_window(t_data *mlx);
 int	update_window(t_data *mlx);
 
 // grafic utils
-int	ft_draw_background(t_data *mlx, int color);
+void	img_pixel_put(t_img *img, int x, int y, int color);
 
-int	ft_draw_rect(t_data *mlx, t_rect rect);
+void	ft_draw_rect(t_img *img, t_rect rect);
+
+void	ft_draw_background(t_data *mlx, int color);
 
 #endif
