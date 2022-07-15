@@ -1,6 +1,6 @@
 NAME		=	so_long
 
-SRCS		=	src/so_long.c src/manage_window.c src/manage_events.c 
+SRCS		=	src/so_long.c src/manage_window.c src/manage_events.c src/grafics_utils.c
 
 OBJS		=	$(SRCS:%.c=%.o)
 

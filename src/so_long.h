@@ -27,4 +27,11 @@ int	ft_readInputKeys(int key, t_data *mlx);
 // window manage
 int	ft_close_window(t_data *mlx);
 
+int	update_window(t_data *mlx);
+
+// grafic utils
+int	ft_draw_background(t_data *mlx, int color);
+
+int	ft_draw_rect(t_data *mlx, t_rect rect);
+
 #endif
