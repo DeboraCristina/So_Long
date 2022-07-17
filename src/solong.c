@@ -56,9 +56,16 @@ void	so_long()
 	free(solong.instance);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	so_long();
+	if (argc < 2)
+	{
+		ft_printf("tem que colocar um mapa colega\n");
+		return (1);
+	}
+	ft_printf("%s\n", argv[1]);
+	//check_map()
+	//so_long();
 
 	return (0);
 }
