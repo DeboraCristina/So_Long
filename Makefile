@@ -4,7 +4,7 @@ PATH_PREFIX	=	src/
 
 EXT_SUFFIX	=	.c
 
-SRCS		=	solong events window_manage
+SRCS		=	solong events window_manage map_manager
 
 FULL_SRCS	=	$(addsuffix $(EXT_SUFFIX), $(addprefix $(PATH_PREFIX), $(SRCS)))
 

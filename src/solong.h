@@ -32,6 +32,9 @@ typedef struct	s_mlx
 	int			status;
 }	t_mlx;
 
+// maps
+int check_map(char *name);
+
 // events
 int		close_window(t_mlx *solong);
 int		key_release(int key, t_mlx *solong);
