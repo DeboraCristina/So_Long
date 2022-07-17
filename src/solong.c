@@ -27,8 +27,8 @@ void	init_display(t_mlx *solong)
 {
 	solong -> instance = mlx_init();
 	solong -> win.width = 320;
-	solong -> win.heigh = 224;
-	solong -> win.window = mlx_new_window(solong -> instance, solong -> win.width, solong -> win.heigh, "So_Long");
+	solong -> win.height = 224;
+	solong -> win.window = mlx_new_window(solong -> instance, solong -> win.width, solong -> win.height, "So_Long");
 	solong -> status = 1;
 }
 
@@ -43,8 +43,8 @@ t_image	inicialize_wall(t_mlx *solong)
 	t_image	wall;
 
 	wall.width = 32;
-	wall.heigh = 32;
-	wall.img = mlx_xpm_file_to_image(solong -> instance, "./wall_32.xpm", &wall.width, &wall.heigh);
+	wall.height = 32;
+	wall.img = mlx_xpm_file_to_image(solong -> instance, "./wall_32.xpm", &wall.width, &wall.height);
 	wall.x = 0;
 	wall.y = 0;
 	return wall;
@@ -55,8 +55,8 @@ t_image	inicialize_coletable(t_mlx *solong)
 	t_image	coletable;
 
 	coletable.width = 32;
-	coletable.heigh = 32;
-	coletable.img = mlx_xpm_file_to_image(solong -> instance, "./coletable01_32.xpm", &coletable.width, &coletable.heigh);
+	coletable.height = 32;
+	coletable.img = mlx_xpm_file_to_image(solong -> instance, "./coletable01_32.xpm", &coletable.width, &coletable.height);
 	coletable.x = 0;
 	coletable.y = 0;
 	return coletable;

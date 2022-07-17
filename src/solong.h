@@ -13,14 +13,14 @@ typedef struct	s_window
 {
 	void	*window;
 	int		width;
-	int		heigh;
+	int		height;
 }	t_window;
 
 typedef struct	s_image
 {
 	void	*img;
 	int		width;
-	int		heigh;
+	int		height;
 	int		x;
 	int		y;
 }	t_image;
