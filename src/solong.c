@@ -1,77 +1,95 @@
 #include "solong.h"
 
-typedef struct	s_solong
+int	close_window(t_mlx *solong)
 {
-	void	*init;
-	void	*window;
-	void	*image;
-}	t_solong;
-
-int	close_window(t_solong *solong)
-{
-	if (solong -> window)
+	if (solong->win.window)
 	{
-		mlx_destroy_window(solong -> init, solong -> window);
+		mlx_destroy_window(solong->instance, solong->win.window);
 	}
 	return (0);
 }
 
-int	key_release(int key, t_solong *solong)
+int	key_release(int key, t_mlx *solong)
 {
 	if (key == K_ESCAPE)
 		close_window(solong);
 	return (0);
 }
 
-int	render(t_solong *solong)
+int	render(t_mlx *solong)
 {
-	if (!solong -> window)
+	if (!solong -> win.window)
 		return (1);
 	return (0);
 }
 
-void	putwall(t_solong solong)
+void	init_display(t_mlx *solong)
 {
-	void	*img;
-	void	*img02;
+	solong -> instance = mlx_init();
+	solong -> win.width = 320;
+	solong -> win.heigh = 224;
+	solong -> win.window = mlx_new_window(solong -> instance, solong -> win.width, solong -> win.heigh, "So_Long");
+	solong -> status = 1;
+}
 
-	int	x = 32;
-	int	y = 32;
-	img = mlx_xpm_file_to_image(solong.init, "./wall_32.xpm", &x, &y);
-	img02 = mlx_xpm_file_to_image(solong.init, "./Enemy_Animation/Enemy_run_32_1.xpm", &x, &y);
-	mlx_put_image_to_window(solong.init, solong.window, img02, (320 / 2), (224 / 2));
+void	events_hook(t_mlx *solong)
+{
+	mlx_hook(solong -> win.window, 17, 1<<24, close_window, solong);
+	mlx_key_hook(solong -> win.window, key_release, solong);
+}
 
-	int	w=0;
-	while (w < 320)
-	{
-		mlx_put_image_to_window(solong.init, solong.window, img, w, 0);
-		mlx_put_image_to_window(solong.init, solong.window, img, w, 192);
-		w += 32;
-	}
+t_image	inicialize_wall(t_mlx *solong)
+{
+	t_image	wall;
 
-	int	h=32;
-	while (h < 224)
-	{
-		mlx_put_image_to_window(solong.init, solong.window, img, 0, h);
-		mlx_put_image_to_window(solong.init, solong.window, img, 288, h);
-		h += 32;
-	}
+	wall.width = 32;
+	wall.heigh = 32;
+	wall.img = mlx_xpm_file_to_image(solong -> instance, "./wall_32.xpm", &wall.width, &wall.heigh);
+	wall.x = 0;
+	wall.y = 0;
+	return wall;
+}
+
+t_image	inicialize_coletable(t_mlx *solong)
+{
+	t_image	coletable;
+
+	coletable.width = 32;
+	coletable.heigh = 32;
+	coletable.img = mlx_xpm_file_to_image(solong -> instance, "./coletable01_32.xpm", &coletable.width, &coletable.heigh);
+	coletable.x = 0;
+	coletable.y = 0;
+	return coletable;
+}
+
+void	putimages(t_mlx *solong)
+{
+	t_image	wall;
+	t_image	coletable;
+
+	wall = inicialize_wall(solong);
+	coletable = inicialize_coletable(solong);
+	mlx_put_image_to_window(solong -> instance, solong -> win.window, coletable.img, coletable.x, coletable.y);
+	mlx_put_image_to_window(solong -> instance, solong -> win.window, wall.img, 200,  200);
+}
+
+void	so_long()
+{
+	t_mlx	solong;
+
+	init_display(&solong);
+	putimages(&solong);
+
+	mlx_loop_hook(solong.instance, render, &solong);
+	events_hook(&solong);
+	mlx_loop(solong.instance);
+	mlx_destroy_display(solong.instance);
+	free(solong.instance);
 }
 
 int	main(void)
 {
-	t_solong	solong;
+	so_long();
 
-	solong.init = mlx_init();
-	solong.window = mlx_new_window(solong.init, 320, 224, "So_Long");
-
-	putwall(solong);
-
-	mlx_loop_hook(solong.init, render, &solong);
-	mlx_hook(solong.window, 17, 1<<24, close_window, &solong);
-	mlx_key_hook(solong.window, key_release, &solong);
-	mlx_loop(solong.init);
-	mlx_destroy_display(solong.init);
-	free(solong.init);
 	return (0);
 }

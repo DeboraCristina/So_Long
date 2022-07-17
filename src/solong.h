@@ -9,4 +9,27 @@
 
 # define K_ESCAPE 65307
 
+typedef struct	s_window
+{
+	void	*window;
+	int		width;
+	int		heigh;
+}	t_window;
+
+typedef struct	s_image
+{
+	void	*img;
+	int		width;
+	int		heigh;
+	int		x;
+	int		y;
+}	t_image;
+
+typedef struct	s_mlx
+{
+	void		*instance;
+	t_window	win;
+	int			status;
+}	t_mlx;
+
 #endif
