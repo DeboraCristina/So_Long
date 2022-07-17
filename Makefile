@@ -24,11 +24,11 @@ MLX_PATH	=	minilibx-linux/
 
 MLX_FLAGS	=	-Iminilibx-linux -Lminilibx-linux -lmlx_Linux  -lXext -lX11 -lm
 
-LFTNAME		=	libft.a
+LFTNAME		=	libft_bonus.a
 
 LFTPATH		= ./Libft
 
-LFTFLAGS	=	-I$(LFTPATH) -L$(LFTPATH) -lft
+LFTFLAGS	=	-I$(LFTPATH) -L$(LFTPATH) -lft_bonus
 
 %.o:	%.c
 	@$(COMPILER) $(FLAGS) -I./ -I$(LFTPATH) -I$(MLX_PATH) -c $< -o $(<:%.c=%.o)
@@ -38,7 +38,7 @@ $(NAME):	$(LFTNAME) $(OBJS) $(MLX_PATH)
 	@$(COMPILER) $(OBJS) $(MLX_FLAGS) $(LFTFLAGS) -o $(NAME)
 
 $(LFTNAME):
-	@$(MAKENOPRINT) -C $(LFTPATH)
+	@$(MAKENOPRINT) bonus -C $(LFTPATH)
 
 all:	$(NAME)
 
