@@ -9,6 +9,13 @@
 
 # define K_ESCAPE 65307
 
+typedef struct	s_map
+{
+	char	*maping;
+	int		width;
+	int		height;
+}	t_map;
+
 typedef struct	s_window
 {
 	void	*window;
