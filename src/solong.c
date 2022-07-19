@@ -63,7 +63,7 @@ int	main(int argc, char **argv)
 		ft_printf("tem que colocar um mapa colega\n");
 		return (1);
 	}
-	if (!check_map(argv[1]) || !valid_map(argc[1]))
+	if (!check_map(argv[1]))
 	{
 		ft_printf("arquivo incorreto\n");
 		return (1);

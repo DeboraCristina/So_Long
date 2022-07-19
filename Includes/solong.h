@@ -40,7 +40,8 @@ typedef struct	s_mlx
 }	t_mlx;
 
 // maps
-int check_map(char *name);
+int	check_map_name(char *name);
+int	valid_map_elements(char *name);
 
 // events
 int		close_window(t_mlx *solong);

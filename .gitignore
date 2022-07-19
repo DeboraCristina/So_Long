@@ -1,6 +1,3 @@
-en.subject.pdf
-# main.c
-zips
-minilibx-linux.tgz
-minilibx_opengl.tgz
-minilibx_mms_20200219_beta.tgz
+.gitignore
+map.ber
+

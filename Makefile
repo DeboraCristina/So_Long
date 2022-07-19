@@ -4,11 +4,13 @@ PATH_PREFIX	=	src/
 
 EXT_SUFFIX	=	.c
 
-SRCS		=	solong events window_manage map_manager
+SRCS		=	solong events window_manage map_manager utils_map
 
 FULL_SRCS	=	$(addsuffix $(EXT_SUFFIX), $(addprefix $(PATH_PREFIX), $(SRCS)))
 
 OBJS		=	$(FULL_SRCS:%.c=%.o)
+
+INCLUDE		=	Includes/
 
 COMPILER	=	cc
 
@@ -31,7 +33,7 @@ LFTPATH		= ./Libft
 LFTFLAGS	=	-I$(LFTPATH) -L$(LFTPATH) -lft_bonus
 
 %.o:	%.c
-	@$(COMPILER) $(FLAGS) -I./ -I$(LFTPATH) -I$(MLX_PATH) -c $< -o $(<:%.c=%.o)
+	@$(COMPILER) $(FLAGS) -I$(INCLUDE) -I$(LFTPATH) -I$(MLX_PATH) -c $< -o $(<:%.c=%.o)
 
 $(NAME):	$(LFTNAME) $(OBJS) $(MLX_PATH)
 	@$(MAKENOPRINT) -C $(MLX_PATH)

@@ -1,6 +1,7 @@
 #include "solong.h"
+#include "utils_map.h"
 
-int	check_map(char *name)
+int	check_map_name(char *name)
 {
 	int	len;
 
@@ -10,19 +11,56 @@ int	check_map(char *name)
 	return(1);
 }
 
-int	valid_map(char *name)
+int	valid_map_elements(char *name)
 {
 	int		filedescriptor;
 	char	*line;
-	char	*validation;
+	int		count;
+	int		last_line;
 
-	ft_bezero(validation);
+	count = 0;
 	filedescriptor = open(name, O_RDONLY);
-	while (1)
+	last_line = line_counter(name);
+	if (filedescriptor < 0)
+		return (0);
+	line = gnl(filedescriptor);
+	if (!line)
+		return (0);
+	while (line)
 	{
-		line = get_next_line(filedescriptor);
-		if (!line)
-			break ;
+		if (!valid_elements(count, last_line, line))
+			return (0);
+		free(line);
+		line = gnl(filedescriptor);
+		count++;
+	}
+	close(filedescriptor);
+	return(1);
+}
+
+int	minimum_elements(char *name)
+{
+	int		*minimuns[3];
+
+	return (1);
+}
+
+int	check_map(char *name)
+{
+	if (!check_map_name(name))
+	{
+		// erro de nome
+		return (0);
+	}
+	if (!valid_map_elements(name))
+	{
+		// erro de formatação de texto
+		return (0);
+	}
+	if (!minimum_elements(name))
+	{
+		// não tem os elementos minimos
+		return (0);
 	}
 	return(1);
 }
