@@ -68,6 +68,7 @@ int	main(int argc, char **argv)
 		ft_printf("arquivo incorreto\n");
 		return (1);
 	}
+	map_genarator(argv[1]);
 	//so_long();
 
 	return (0);

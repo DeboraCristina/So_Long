@@ -43,6 +43,7 @@ typedef struct	s_mlx
 int	check_map_name(char *name);
 int	valid_map_elements(char *name);
 int	check_map(char *name);
+t_map	map_genarator(char *name);
 
 // events
 int		close_window(t_mlx *solong);
