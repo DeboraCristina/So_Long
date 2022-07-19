@@ -4,7 +4,7 @@
 int		check_char(char *set, char *str);
 int		check_linelen(int *default_len , int index, char *row);
 int		valid_elements(int index, int last, char *row);
-int		line_counter(char *name);
+int	row_counter(char *name);
 void	gen_minimuns(int *minimum, char *name);
 
 #endif

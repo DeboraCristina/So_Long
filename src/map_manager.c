@@ -1,16 +1,6 @@
 #include "solong.h"
 #include "utils_map.h"
 
-int	check_map_name(char *name)
-{
-	int	len;
-
-	len = ft_strlen(name);
-	if (len < 5 || ft_strcmp((name + (len - 4)), ".ber"))
-		return(0);
-	return(1);
-}
-
 int	valid_map_elements(char *name)
 {
 	int		filedescriptor;
@@ -20,7 +10,7 @@ int	valid_map_elements(char *name)
 
 	count = 0;
 	filedescriptor = open(name, O_RDONLY);
-	last_line = line_counter(name);
+	last_line = row_counter(name);
 	if (filedescriptor < 0)
 		return (0);
 	line = gnl(filedescriptor);
@@ -40,26 +30,50 @@ int	valid_map_elements(char *name)
 
 int	minimum_elements(char *name)
 {
-	int		*minimuns[3];
+	int		minimum[3];
 
+	minimum[0] = 0;
+	minimum[1] = 0;
+	minimum[2] = 0;
+	gen_minimuns(minimum, name);
+	if (!minimum[0] || !minimum[1] || !minimum[2])
+		return (0);
 	return (1);
+}
+
+int	check_map_name(char *name)
+{
+	int	len;
+
+	len = ft_strlen(name);
+	if (len < 5 || ft_strcmp((name + (len - 4)), ".ber"))
+		return(0);
+	return(1);
 }
 
 int	check_map(char *name)
 {
+	char	*error;
+
+	error = NULL;
 	if (!check_map_name(name))
 	{
 		// erro de nome
-		return (0);
+		error = "name";
 	}
-	if (!valid_map_elements(name))
+	else if (!valid_map_elements(name))
 	{
 		// erro de formatação de texto
-		return (0);
+		error = "text";
 	}
-	if (!minimum_elements(name))
+	else if (!minimum_elements(name))
 	{
 		// não tem os elementos minimos
+		error = "minimum elements";
+	}
+	if (error)
+	{
+		ft_printf("Error! -- %s --\n", error);
 		return (0);
 	}
 	return(1);

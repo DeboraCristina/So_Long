@@ -52,7 +52,7 @@ int	valid_elements(int index, int last, char *row)
 	return (status);
 }
 
-int	line_counter(char *name)
+int	row_counter(char *name)
 {
 	int		c;
 	int		fd;
@@ -77,8 +77,8 @@ int	line_counter(char *name)
 void	gen_minimuns(int *minimum, char *name)
 {
 	int		fd;
-	int		c;
 	char	*line;
+	int		c;
 
 	fd = open(name, O_RDONLY);
 	line = gnl(fd);
@@ -93,6 +93,7 @@ void	gen_minimuns(int *minimum, char *name)
 				minimum[1] += 1;
 			else if (line[c] == 'C')
 				minimum[2] += 1;
+			c ++;
 		}
 		free(line);
 		line = gnl(fd);
