@@ -6,12 +6,12 @@
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:14:57 by desilva           #+#    #+#             */
-/*   Updated: 2022/07/19 17:00:46 by desilva          ###   ########.fr       */
+/*   Updated: 2022/07/21 11:16:16 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
-#include "verify_map_utils.h"
+#include "map_manager.h"
 
 int	valid_map_elements(char *name)
 {

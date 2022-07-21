@@ -1,17 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   map_manager.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 11:14:57 by desilva           #+#    #+#             */
-/*   Updated: 2022/07/19 17:00:29 by desilva          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "solong.h"
-#include "verify_map_utils.h"
+#include "map_manager.h"
 
 int	check_map(char *name)
 {
@@ -38,7 +26,7 @@ int	check_map(char *name)
 	return (1);
 }
 
-t_map	map_genarator(char *name)
+t_map	map_generator(char *name)
 {
 	t_map	v_map;
 	int		fd;
@@ -46,12 +34,54 @@ t_map	map_genarator(char *name)
 
 	fd = open(name, O_RDONLY);
 	line = gnl(fd);
-	v_map.maping = ft_calloc(row_counter(name) * ft_strlen(line), 1);
+	v_map.mapping = ft_calloc(row_counter(name) * ft_strlen(line), 1);
 	v_map.height = row_counter(name);
 	gen_maplst(name, &v_map);
-	ft_printf("-- H = %d | W = %d --\n", v_map.height, v_map.width);
-	ft_printf("-- %s --\n", v_map.maping);
 	free(line);
 	close(fd);
 	return (v_map);
 }
+
+void	gen_objects(t_mlx *mlx, t_list *objs, t_map *p_map)
+{
+	t_image	*ob;
+	char	*nm;
+	char	elem;
+	int		count;
+
+	if (!mlx)
+		return ;
+	count = 0;
+	ob = (t_image *) malloc(sizeof(t_image));
+	ob->size = 32;
+	while (p_map->mapping[count])
+	{
+		elem = p_map->mapping[count];
+		if (elem == '1')
+			nm = "wall";
+		else if (elem == 'P')
+			nm = "player";
+		else if (elem == 'C')
+			nm = "coletable";
+		else if (elem == 'E')
+			nm = "exit";
+		else if (elem == 'D')
+			nm = "devil";
+		else
+		{
+			ob->x = count * 32;
+			ob->y = (count / p_map->width) * 32;
+			ob->img = nm;
+			ft_lstadd_back(&objs, ft_lstnew(&ob));
+		}
+		count ++;
+	}
+}
+
+//		else
+//		{
+//			ob.x = count * 32;
+//			ob.y = (count / p_map->width) * 32;
+//			ob.img = mlx_xpm_file_to_image(mlx->init, nm, &ob.size, &ob.size);
+//			ft_lstadd_back(&objs, ft_lstnew(&ob));
+//		}

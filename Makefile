@@ -5,7 +5,8 @@ PATH_PREFIX	=	src/
 EXT_SUFFIX	=	.c
 
 SRCS		=	solong events window_manage \
-				src_map/map_manager src_map/verify_map src_map/verify_map_utils
+				src_map/map_manager src_map/verify_map \
+				src_map/verify_map_utils src_map/map_configs
 
 FULL_SRCS	=	$(addsuffix $(EXT_SUFFIX), $(addprefix $(PATH_PREFIX), $(SRCS)))
 

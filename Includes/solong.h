@@ -11,7 +11,7 @@
 
 typedef struct	s_map
 {
-	char	*maping;
+	char	*mapping;
 	int		width;
 	int		height;
 }	t_map;
@@ -26,24 +26,22 @@ typedef struct	s_window
 typedef struct	s_image
 {
 	void	*img;
-	int		width;
-	int		height;
+	int		size;
 	int		x;
 	int		y;
 }	t_image;
 
 typedef struct	s_mlx
 {
-	void		*instance;
+	void		*init;
 	t_window	win;
 	int			status;
 }	t_mlx;
 
 // maps
-int	check_map_name(char *name);
-int	valid_map_elements(char *name);
 int	check_map(char *name);
-t_map	map_genarator(char *name);
+t_map	map_generator(char *name);
+void	gen_objects(t_mlx *mlx, t_list *objs, t_map *p_map);
 
 // events
 int		close_window(t_mlx *solong);
