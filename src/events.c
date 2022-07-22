@@ -4,7 +4,7 @@ int	close_window(t_mlx *solong)
 {
 	if (solong->win.window)
 	{
-		mlx_destroy_window(solong->instance, solong->win.window);
+		mlx_destroy_window(solong->init, solong->win.window);
 	}
 	return (0);
 }

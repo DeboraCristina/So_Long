@@ -6,7 +6,10 @@ EXT_SUFFIX	=	.c
 
 SRCS		=	solong events window_manage \
 				src_map/map_manager src_map/verify_map \
-				src_map/verify_map_utils src_map/map_configs
+				src_map/verify_map_utils src_map/map_configs \
+				src_objsconfigs/ft_objadd_back \
+				src_objsconfigs/ft_newobj \
+				src_objsconfigs/ft_objlast
 
 FULL_SRCS	=	$(addsuffix $(EXT_SUFFIX), $(addprefix $(PATH_PREFIX), $(SRCS)))
 
@@ -35,11 +38,11 @@ LFTPATH		= ./Libft
 LFTFLAGS	=	-I$(LFTPATH) -L$(LFTPATH) -lft_bonus
 
 %.o:	%.c
-	@$(COMPILER) $(FLAGS) -I$(INCLUDE) -I$(LFTPATH) -I$(MLX_PATH) -c $< -o $(<:%.c=%.o)
+	@$(COMPILER) $(FLAGS) -I$(INCLUDE) -I$(LFTPATH) -I$(MLX_PATH) -g3 -c $< -o $(<:%.c=%.o)
 
 $(NAME):	$(LFTNAME) $(OBJS) $(MLX_PATH)
 	@$(MAKENOPRINT) -C $(MLX_PATH)
-	@$(COMPILER) $(OBJS) $(MLX_FLAGS) $(LFTFLAGS) -o $(NAME)
+	@$(COMPILER) $(OBJS) $(MLX_FLAGS) $(LFTFLAGS) -g3 -o $(NAME)
 
 $(LFTNAME):
 	@$(MAKENOPRINT) bonus -C $(LFTPATH)

@@ -42,7 +42,7 @@ t_map	map_generator(char *name)
 	return (v_map);
 }
 
-void	gen_objects(t_mlx *mlx, t_list *objs, t_map *p_map)
+void	gen_objects(t_mlx *mlx, t_objlk *objs, t_map *p_map)
 {
 	t_image	*ob;
 	char	*nm;
@@ -67,12 +67,12 @@ void	gen_objects(t_mlx *mlx, t_list *objs, t_map *p_map)
 			nm = "exit";
 		else if (elem == 'D')
 			nm = "devil";
-		else
+		if (elem != '0')
 		{
 			ob->x = count * 32;
 			ob->y = (count / p_map->width) * 32;
 			ob->img = nm;
-			ft_lstadd_back(&objs, ft_lstnew(&ob));
+			ft_objadd_back(&objs, ft_newobj(&ob));
 		}
 		count ++;
 	}

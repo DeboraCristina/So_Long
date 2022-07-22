@@ -1,17 +1,17 @@
 #include "solong.h"
 
-void	show (t_list *lst)
+void	show (t_objlk *lst)
 {
 	while (lst->next)
 	{
-		ft_printf("|%d|\n", lst->content.x);
+		ft_printf("|%d|\n", lst->presets->x);
 		lst = lst->next;
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	t_list	objs;
+	t_objlk	objs;
 	t_map	v_map;
 	t_mlx mlx;
 
@@ -24,8 +24,10 @@ int	main(int argc, char **argv)
 	v_map = map_generator(argv[1]);
 	gen_objects(&mlx, &objs, &v_map);
 	show(&objs);
+	ft_printf("aki\n");
 	//so_long();
 
+	close_window(&mlx);
 	mlx_destroy_display(mlx.init);
 	free(mlx.init);
 	return (0);

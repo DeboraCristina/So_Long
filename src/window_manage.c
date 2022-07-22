@@ -2,10 +2,10 @@
 
 void	init_display(t_mlx *solong)
 {
-	solong -> instance = mlx_init();
+	solong -> init = mlx_init();
 	solong -> win.width = 320;
 	solong -> win.height = 224;
-	solong -> win.window = mlx_new_window(solong -> instance, solong -> win.width, solong -> win.height, "So_Long");
+	solong -> win.window = mlx_new_window(solong -> init, solong -> win.width, solong -> win.height, "So_Long");
 	solong -> status = 1;
 }
 
