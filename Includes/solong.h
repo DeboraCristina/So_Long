@@ -47,7 +47,7 @@ typedef struct	s_objlk
 
 void	ft_objadd_back(t_objlk **lst, t_objlk *new);
 t_objlk	*ft_objlast(t_objlk *lst);
-t_objlk	*ft_newobj(void *content);
+t_objlk	*ft_newobj(t_image *content);
 // maps
 int	check_map(char *name);
 t_map	map_generator(char *name);

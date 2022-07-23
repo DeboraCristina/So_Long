@@ -1,6 +1,6 @@
 #include "solong.h"
 
-t_objlk	*ft_newobj(void *presets)
+t_objlk	*ft_newobj(t_image *presets)
 {
 	t_objlk	*newnode;
 

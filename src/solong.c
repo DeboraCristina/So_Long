@@ -2,9 +2,13 @@
 
 void	show (t_objlk *lst)
 {
-	while (lst->next)
+	while (lst)
 	{
-		ft_printf("|%d|\n", lst->presets->x);
+		if (lst->presets)
+		{
+			ft_printf("|%d|\n", lst->presets->x);
+			ft_printf("|%s|\n", lst->presets->img);
+		}
 		lst = lst->next;
 	}
 }

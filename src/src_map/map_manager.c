@@ -44,44 +44,57 @@ t_map	map_generator(char *name)
 
 void	gen_objects(t_mlx *mlx, t_objlk *objs, t_map *p_map)
 {
-	t_image	*ob;
+	t_objlk	*obj;
+	t_image	*img;
+	char	*name;
+	int		count;
+
+	if (!mlx || !p_map || !objs)
+		return ;
+	count = 0;
+	img = (t_image *) malloc(sizeof(t_image));
+	img->size = 32;
+	while (p_map->mapping[count])
+	{
+		if (p_map->mapping[count] != '0')
+		{
+			if (p_map->mapping[count] == '1')
+				name = "wall";
+			else if (p_map->mapping[count] == 'P')
+				name = "player";
+			else if (p_map->mapping[count] == 'C')
+				name = "coletable";
+			else if (p_map->mapping[count] == 'E')
+				name = "exit";
+			else if (p_map->mapping[count] == 'D')
+				name = "devil";
+			img->x = (count * 32);
+			img->y = ((count / p_map->width) * 32);
+			img->img = name;
+		}
+		obj = ft_newobj(img);
+		ft_objadd_back(&objs, obj);
+		count++;
+	}
+}
+/*
+{
+	t_image	*obj;
 	char	*nm;
 	char	elem;
 	int		count;
 
-	if (!mlx)
-		return ;
-	count = 0;
-	ob = (t_image *) malloc(sizeof(t_image));
-	ob->size = 32;
 	while (p_map->mapping[count])
 	{
 		elem = p_map->mapping[count];
-		if (elem == '1')
-			nm = "wall";
-		else if (elem == 'P')
-			nm = "player";
-		else if (elem == 'C')
-			nm = "coletable";
-		else if (elem == 'E')
-			nm = "exit";
-		else if (elem == 'D')
-			nm = "devil";
 		if (elem != '0')
 		{
-			ob->x = count * 32;
-			ob->y = (count / p_map->width) * 32;
-			ob->img = nm;
-			ft_objadd_back(&objs, ft_newobj(&ob));
+			obj->x = count * 32;
+			obj->y = (count / p_map->width) * 32;
+			obj.img = mlx_xpm_file_to_image(mlx->init, nm, &obj.size, &obj.size);
+			ft_objadd_back(&objs, ft_newobj(&obj));
 		}
 		count ++;
 	}
 }
-
-//		else
-//		{
-//			ob.x = count * 32;
-//			ob.y = (count / p_map->width) * 32;
-//			ob.img = mlx_xpm_file_to_image(mlx->init, nm, &ob.size, &ob.size);
-//			ft_lstadd_back(&objs, ft_lstnew(&ob));
-//		}
+*/
