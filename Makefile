@@ -4,14 +4,16 @@ PATH_PREFIX	=	src/
 
 EXT_SUFFIX	=	.c
 
-SRCS		=	solong events window_manage \
-				src_map/map_manager src_map/verify_map \
-				src_map/verify_map_utils src_map/map_configs \
-				src_objsconfigs/ft_objadd_back \
-				src_objsconfigs/ft_newobj \
-				src_objsconfigs/ft_objlast
+SRCS_OBJS	=	src_objsconfigs/config_obj src_objsconfigs/ft_objadd_back \
+				src_objsconfigs/ft_newobj src_objsconfigs/ft_objlast \
+				src_objsconfigs/ft_objclear src_objsconfigs/ft_objiter
 
-FULL_SRCS	=	$(addsuffix $(EXT_SUFFIX), $(addprefix $(PATH_PREFIX), $(SRCS)))
+SRCS_MAPS	=	src_map/verify_map src_map/map_configs \
+				src_map/verify_map_utils \
+
+SRCS		=	solong events window_manage map_manager \
+
+FULL_SRCS	=	$(addsuffix $(EXT_SUFFIX), $(addprefix $(PATH_PREFIX), $(SRCS) $(SRCS_MAPS) $(SRCS_OBJS)))
 
 OBJS		=	$(FULL_SRCS:%.c=%.o)
 

@@ -45,13 +45,16 @@ typedef struct	s_objlk
 	struct s_objlk	*next;
 }	t_objlk;
 
+void	gen_objects(t_mlx *mlx, t_objlk *objs, t_map *p_map);
+void	ft_objclear(t_objlk *obj);
 void	ft_objadd_back(t_objlk **lst, t_objlk *new);
+void	ft_objiter(t_objlk *obj, void (*function)(t_image *));
 t_objlk	*ft_objlast(t_objlk *lst);
 t_objlk	*ft_newobj(t_image *content);
+char	*get_name(char c);
 // maps
 int	check_map(char *name);
 t_map	map_generator(char *name);
-void	gen_objects(t_mlx *mlx, t_objlk *objs, t_map *p_map);
 
 // events
 int		close_window(t_mlx *solong);
