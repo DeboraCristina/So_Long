@@ -17,7 +17,7 @@ FULL_SRCS	=	$(addsuffix $(EXT_SUFFIX), $(addprefix $(PATH_PREFIX), $(SRCS) $(SRC
 
 OBJS		=	$(FULL_SRCS:%.c=%.o)
 
-INCLUDE		=	Includes/
+INCLUDE		=	includes/
 
 COMPILER	=	cc
 

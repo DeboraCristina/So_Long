@@ -51,7 +51,16 @@ void	gen_objects(t_mlx *mlx, t_objlk *objs, t_map *p_map)
 	void	*v;
 
 	if (!mlx || !p_map || !objs)
+	{
+		if (!p_map)
+			ft_printf("no map\n");
+		if (!objs)
+			ft_printf("no obj\n");
+		if (!mlx)
+			ft_printf("no mlx\n");
+		ft_printf("nothing\n");
 		return ;
+	}
 	count = 0;
 	while (p_map->mapping[count])
 	{
@@ -61,7 +70,9 @@ void	gen_objects(t_mlx *mlx, t_objlk *objs, t_map *p_map)
 		img->x = ((count % 10) * 32);
 		img->y = ((count / (p_map->width - 1)) * 32);
 		v = mlx_xpm_file_to_image(mlx->init, name, &img->size, &img->size);
-		img->img = v;
+		if (!v)
+			return ;
+		img->img = name;
 		obj = ft_newobj(img);
 		ft_objadd_back(&objs, obj);
 		count++;
