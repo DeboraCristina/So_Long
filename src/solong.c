@@ -47,9 +47,10 @@ void	so_long(t_map *p_map)
 	//scene_building(objs, &solong);
 	mlx_loop_hook(solong.init, render, &solong);
 	events_hook(&solong);
+	show(objs);
 	mlx_loop(solong.init);
 	mlx_destroy_display(solong.init);
-	ft_objclear(objs);
+	ft_objclear(&solong, objs);
 	free(solong.init);
 }
 

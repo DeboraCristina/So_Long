@@ -6,7 +6,7 @@
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:36:31 by desilva           #+#    #+#             */
-/*   Updated: 2022/07/25 14:19:23 by desilva          ###   ########.fr       */
+/*   Updated: 2022/07/27 13:12:58 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_objlk
 
 // objects
 void	gen_objects(t_mlx *mlx, t_objlk *objs, t_map *p_map);
-void	ft_objclear(t_objlk *obj);
+void	ft_objclear(t_mlx *solong, t_objlk *obj);
 void	ft_objadd_back(t_objlk **lst, t_objlk *new);
 void	ft_objiter(t_objlk *obj, void (*function)(t_image *));
 t_objlk	*ft_objlast(t_objlk *lst);

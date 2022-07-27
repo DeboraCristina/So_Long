@@ -1,6 +1,6 @@
 #include "solong.h"
 
-void	ft_objclear(t_objlk *obj)
+void	ft_objclear(t_mlx *solong, t_objlk *obj)
 {
 	t_objlk	*temp;
 
@@ -10,6 +10,7 @@ void	ft_objclear(t_objlk *obj)
 	{
 		temp = obj;
 		obj = obj->next;
+		mlx_destroy_image(solong->init, obj->presets->img);
 		free(temp->presets);
 		free(temp);
 	}
