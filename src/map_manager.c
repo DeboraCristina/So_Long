@@ -42,10 +42,75 @@ t_map	map_generator(char *name)
 	return (v_map);
 }
 
-void	gen_objects(t_mlx *mlx, t_objlk *objs, t_map *p_map)
+t_list	*get_objects(t_mlx *mlx, t_map *p_map)
+{
+	void	adresses[5];
+	t_list	*objs;
+
+	objs = ft_lstnew((void *) 0);
+	ft_bzero(adresses, 5);
+	gen_adress(mlx->init, p_map->mapping, adresses);
+	gen_objects(adresses, objs);
+	return (objs);
+}
+
+void	get_elements_map(char *str_map, char *elements)
+{
+	int	c;
+	int	i;
+
+	c = 0;
+	i = 0;
+	while (str_map[c])
+	{
+		if (!ft_strchr(elements, str_map[c]))
+		{
+			elements[i] = str_map[c];
+			i++;
+		}
+		c++;
+	}
+}
+
+void	gen_adress(void *mlx_ptr, char *str_map, void *adresses)
+{
+	int		i;
+	int		size;
+	char	elements[5];
+
+	i = 0;
+	size = SIZE;
+	ft_bzero(elements, 5);
+	get_elements_map(str_map, elements);
+	while (elements[i])
+	{
+		adresses[i] = mlx_xpm_file_to_image(mlx_ptr, get_name(elements[i]);, &size, &size);
+		i++;
+	}
+}
+
+void	gen_objects(void *adresses, t_list	*objs, char *str_map)
+{
+	t_image	*img;
+	char	elements[5];
+	int		c;
+
+	c = 0;
+	ft_bzero(elements, 5);
+	get_elements_map(str_map, elements);
+	while (str_map[c]) // 11111 1PCE1 11111
+	{
+		img = (t_image *) malloc(sizeof(t_image));
+		img->x = ((count % 10) * 32);
+		img->y = ((count / (p_map->width - 1)) * 32);
+		img->img = 
+	}
+}
+
+/*void	gen_objects(t_mlx *mlx, t_objlk *objs, t_map *p_map)
 {
 	t_objlk	*obj;
-	t_image	*img;
+	
 	char	*name;
 	int		count;
 	void	*v;
@@ -64,11 +129,9 @@ void	gen_objects(t_mlx *mlx, t_objlk *objs, t_map *p_map)
 	count = 0;
 	while (p_map->mapping[count])
 	{
-		img = (t_image *) malloc(sizeof(t_image));
+		
 		img->size = 32;
 		name = get_name(p_map->mapping[count]);
-		img->x = ((count % 10) * 32);
-		img->y = ((count / (p_map->width - 1)) * 32);
 		v = mlx_xpm_file_to_image(mlx->init, name, &img->size, &img->size);
 		if (!v)
 			return ;
@@ -78,3 +141,4 @@ void	gen_objects(t_mlx *mlx, t_objlk *objs, t_map *p_map)
 		count++;
 	}
 }
+*/
