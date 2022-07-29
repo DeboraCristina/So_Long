@@ -6,7 +6,7 @@
 /*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:36:31 by desilva           #+#    #+#             */
-/*   Updated: 2022/07/27 21:53:56 by desilva          ###   ########.fr       */
+/*   Updated: 2022/07/29 10:44:26 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include "libft.h"
+# include "images.h"
+# define XMP_TO_IMG mlx_xpm_file_to_image
 # define K_ESCAPE 65307
 # define SIZE 32
 
 typedef struct s_image
 {
-	void	*img;
+	char	*name;
 	int		x;
 	int		y;
 }	t_image;
@@ -50,8 +52,9 @@ typedef struct s_mlx
 }	t_mlx;
 
 // objects
-void	gen_objects(t_mlx *mlx, t_list *objs, t_map *p_map);
 char	*get_name(char c);
+t_list	*gen_objects(t_map *p_map);
+t_list	*gen_images(void *p_mlx);
 
 // maps
 int		check_map(char *name);
