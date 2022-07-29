@@ -65,7 +65,7 @@ int		close_window(t_mlx *solong);
 int		key_release(int key, t_mlx *solong);
 
 // window manage
-void	init_display(t_mlx *solong);
+void	init_display(t_mlx *solong, t_map *p_map);
 void	events_hook(t_mlx *solong);
 
 #endif

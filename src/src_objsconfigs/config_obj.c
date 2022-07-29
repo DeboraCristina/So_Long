@@ -4,6 +4,7 @@ char	*get_name(char c)
 {
 	char	*name;
 
+	name = NULL;
 	if (c == '1')
 		name = "1";
 	else if (c == 'P')
@@ -14,6 +15,8 @@ char	*get_name(char c)
 		name = "4";
 	else if (c == 'D')
 		name = "5";
+	else
+		name = "0";
 	return (name);
 }
 
@@ -23,18 +26,17 @@ t_list	*gen_objects(t_map *p_map)
 	t_image *img;
 	int		c;
 
-	objs = ft_lstnew((void *) 0);
 	c = 0;
 	while (p_map->mapping[c])
 	{
-		if (p_map->mapping[c] != 0)
-		{
-			img = (t_image *) malloc(sizeof(t_image));
-			img->x = ((c % 10) * 32);
-			img->y = ((c / (p_map->width - 1)) * 32);
-			img->name = get_name(p_map->mapping[c]);
+		img = (t_image *) malloc(sizeof(t_image));
+		img->x = ((c % (p_map->width - 1)) * 32);
+		img->y = ((c / (p_map->width - 1)) * 32);
+		img->name = get_name(p_map->mapping[c]);
+		if (c == 0)
+			objs = ft_lstnew(img);
+		else
 			ft_lstadd_back(&objs, ft_lstnew(img));
-		}
 		c++;
 	}
 	return (objs);
@@ -43,15 +45,19 @@ t_list	*gen_objects(t_map *p_map)
 t_list	*gen_images(void *p_mlx)
 {
 	t_list	*xpm;
+	t_list	*first;
+	t_list	*last;
 	int		size;
 
-	xpm = ft_lstnew((void *) 0);
 	size = SIZE;
-	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, SPACE, &size, &size)));
+	xpm = ft_lstnew(XMP_TO_IMG(p_mlx, SPACE, &size, &size));
+	first = xpm;
 	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, WALL, &size, &size)));
 	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, PLAYER, &size, &size)));
 	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, EXIT, &size, &size)));
 	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, COLLECT, &size, &size)));
 	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, DEVIL, &size, &size)));
+	last = ft_lstlast(xpm);
+	last->next = first;
 	return (xpm);
 }
