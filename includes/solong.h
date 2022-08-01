@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   solong.h                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 13:36:31 by desilva           #+#    #+#             */
-/*   Updated: 2022/07/29 10:44:26 by desilva          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef SOLONG_H
 # define SOLONG_H
 
@@ -55,6 +43,8 @@ typedef struct s_mlx
 char	*get_name(char c);
 t_list	*gen_objects(t_map *p_map);
 t_list	*gen_images(void *p_mlx);
+void	ft_destroy_images(void *p_mlx, t_list *lst);
+void	ft_delimage(void *ptr_img);
 
 // maps
 int		check_map(char *name);

@@ -32,37 +32,13 @@ void	so_long(t_map *p_map)
 	init_display(&solong, p_map);
 	objs = gen_objects(p_map);
 	xpm_images = gen_images(solong.init);
-	// ------------------------------- //
 	put_background(xpm_images, objs, &solong);
-
-	t_image *img;
-	int	x;
-	int	y;
-
-	while (objs)
-	{
-		img = (t_image *) objs->content;
-		x = img->x;
-		y = img->y;
-		if (!ft_strcmp(img->name, "1"))
-			mlx_put_image_to_window(solong.init, solong.win.window, xpm_images->next->content, x, y);
-		if (!ft_strcmp(img->name, "2"))
-			mlx_put_image_to_window(solong.init, solong.win.window, xpm_images->next->next->content, x, y);
-		if (!ft_strcmp(img->name, "4"))
-			mlx_put_image_to_window(solong.init, solong.win.window, xpm_images->next->next->next->next->content, x, y);
-		if (!ft_strcmp(img->name, "5"))
-			mlx_put_image_to_window(solong.init, solong.win.window, xpm_images->next->next->next->next->next->content, x, y);
-		
-		objs = objs->next;
-	}
-
-	// ------------------------------- //
 	// mlx_put_image_to_window(void *mlx_ptr, void *mlx_win, void *img, x , y)
 	mlx_loop_hook(solong.init, render, &solong);
 	events_hook(&solong);
 	mlx_loop(solong.init);
+	ft_destroy_images(solong.init, xpm_images);
 	mlx_destroy_display(solong.init);
-	// ft_objclear(&solong, objs);
 	free(solong.init);
 }
 

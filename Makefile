@@ -4,7 +4,8 @@ PATH_PREFIX	=	src/
 
 EXT_SUFFIX	=	.c
 
-SRCS_OBJS	=	src_objsconfigs/config_obj #src_objsconfigs/ft_objclear
+SRCS_OBJS	=	src_objsconfigs/config_obj src_objsconfigs/ft_delimage\
+				src_objsconfigs/ft_destroy_images
 
 SRCS_MAPS	=	src_map/verify_map src_map/map_configs \
 				src_map/verify_map_utils \
