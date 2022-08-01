@@ -45,19 +45,14 @@ t_list	*gen_objects(t_map *p_map)
 t_list	*gen_images(void *p_mlx)
 {
 	t_list	*xpm;
-	t_list	*first;
-	t_list	*last;
 	int		size;
 
 	size = SIZE;
 	xpm = ft_lstnew(XMP_TO_IMG(p_mlx, SPACE, &size, &size));
-	first = xpm;
 	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, WALL, &size, &size)));
 	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, PLAYER, &size, &size)));
 	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, EXIT, &size, &size)));
 	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, COLLECT, &size, &size)));
 	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, DEVIL, &size, &size)));
-	last = ft_lstlast(xpm);
-	last->next = first;
 	return (xpm);
 }

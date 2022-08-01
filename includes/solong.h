@@ -44,7 +44,7 @@ char	*get_name(char c);
 t_list	*gen_objects(t_map *p_map);
 t_list	*gen_images(void *p_mlx);
 void	ft_destroy_images(void *p_mlx, t_list *lst);
-void	ft_delimage(void *ptr_img);
+void	ft_destroy_objs(t_list	*objs);
 
 // maps
 int		check_map(char *name);

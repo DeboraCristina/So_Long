@@ -4,8 +4,7 @@ PATH_PREFIX	=	src/
 
 EXT_SUFFIX	=	.c
 
-SRCS_OBJS	=	src_objsconfigs/config_obj src_objsconfigs/ft_delimage\
-				src_objsconfigs/ft_destroy_images
+SRCS_OBJS	=	src_objsconfigs/config_obj src_objsconfigs/ft_destroy_images \
 
 SRCS_MAPS	=	src_map/verify_map src_map/map_configs \
 				src_map/verify_map_utils \
@@ -30,7 +29,7 @@ MAKENOPRINT	=	make --no-print-directory
 
 MLX_PATH	=	minilibx-linux/
 
-MLX_FLAGS	=	-Iminilibx-linux -Lminilibx-linux -lmlx_Linux  -lXext -lX11 -lm
+MLX_FLAGS	=	-Iminilibx-linux -Lminilibx-linux -lmlx  -lXext -lX11 -lm
 
 LFTNAME		=	libft_bonus.a
 
