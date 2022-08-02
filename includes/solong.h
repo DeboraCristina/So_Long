@@ -23,6 +23,11 @@ void	ft_destroy_objs(t_list	*objs);
 
 // put images
 void	put_background(t_list *imgs, t_list *objs, t_mlx *solong);
+void	put_walls(t_list *imgs, t_list *objs, t_mlx *solong);
+void	put_player(t_list *imgs, t_list *objs, t_mlx *solong);
+void	put_enemy(t_list *imgs, t_list *objs, t_mlx *solong);
+void	put_collectable(t_list *imgs, t_list *objs, t_mlx *solong);
+void	put_exit(t_list *imgs, t_list *objs, t_mlx *solong);
 
 // maps
 int		check_map(char *name);

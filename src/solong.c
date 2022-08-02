@@ -18,7 +18,11 @@ void	so_long(t_map *p_map)
 	objs = gen_objects(p_map);
 	xpm_images = gen_images(solong.init);
 	put_background(xpm_images, objs, &solong);
-	// mlx_put_image_to_window(void *mlx_ptr, void *mlx_win, void *img, x , y)
+	put_walls(xpm_images, objs, &solong);
+	put_player(xpm_images, objs, &solong);
+	put_exit(xpm_images, objs, &solong);
+	put_collectable(xpm_images, objs, &solong);
+	put_enemy(xpm_images, objs, &solong);
 	mlx_loop_hook(solong.init, render, &solong);
 	events_hook(&solong);
 	mlx_loop(solong.init);
