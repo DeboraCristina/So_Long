@@ -10,31 +10,6 @@ t_image	*find_player(t_list *objs)
 	return (img);
 }
 
-int	render(t_mlx *solong)
-{
-	// t_image	*img;
-
-	if (!solong)
-		return (1);
-	//img = find_player(solong->objs);
-	//img->x = img->x + 1;
-	//ft_printf("|%d|\n", img->x);
-	put_background(*solong);
-	put_walls(*solong);
-	put_player(*solong);
-	put_exit(*solong);
-	put_collectable(*solong);
-	put_enemy(*solong);
-	return (0);
-}
-
-int	expose(t_mlx *solong)
-{
-	if (!solong)
-		return (1);
-	return (0);
-}
-
 void	so_long(t_map *p_map)
 {
 	t_mlx	solong;
@@ -45,8 +20,6 @@ void	so_long(t_map *p_map)
 	mlx_loop_hook(solong.init, render, &solong);
 	events_hook(&solong);
 	mlx_loop(solong.init);
-	ft_lstclear(&solong.objs, free);
-	ft_destroy_images(solong.init, solong.xpm_images);
 	mlx_destroy_display(solong.init);
 	free(solong.init);
 }

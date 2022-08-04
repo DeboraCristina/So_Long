@@ -21,6 +21,5 @@ void	events_hook(t_mlx *solong)
 {
 	mlx_hook(solong -> win.window, 17, 1<<24, close_window, solong);
 	mlx_key_hook(solong -> win.window, key_release, solong);
-	mlx_expose_hook(solong -> win.window, expose, solong);
 }
 

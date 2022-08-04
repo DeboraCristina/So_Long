@@ -10,7 +10,7 @@ SRCS_MAPS	=	src_map/verify_map src_map/map_configs \
 				src_map/verify_map_utils \
 
 SRCS		=	solong events window_manage map_manager \
-				put_images
+				put_images movements
 
 FULL_SRCS	=	$(addsuffix $(EXT_SUFFIX), $(addprefix $(PATH_PREFIX), $(SRCS) $(SRCS_MAPS) $(SRCS_OBJS)))
 
