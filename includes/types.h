@@ -26,6 +26,8 @@ typedef struct s_mlx
 {
 	void		*init;
 	t_window	win;
+	t_list		*objs;
+	t_list		*xpm_images;
 	int			status;
 }	t_mlx;
 

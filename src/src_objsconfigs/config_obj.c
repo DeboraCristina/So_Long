@@ -44,15 +44,22 @@ t_list	*gen_objects(t_map *p_map)
 
 t_list	*gen_images(void *p_mlx)
 {
-	t_list	*xpm;
+	t_list	*xpm_lst;
+	void	*xpm_img;
 	int		size;
 
 	size = SIZE;
-	xpm = ft_lstnew(XMP_TO_IMG(p_mlx, SPACE, &size, &size));
-	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, WALL, &size, &size)));
-	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, PLAYER, &size, &size)));
-	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, EXIT, &size, &size)));
-	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, COLLECT, &size, &size)));
-	ft_lstadd_back(&xpm, ft_lstnew(XMP_TO_IMG(p_mlx, DEVIL, &size, &size)));
-	return (xpm);
+	xpm_img = mlx_xpm_file_to_image(p_mlx, SPACE, &size, &size);
+	xpm_lst = ft_lstnew(xpm_img);
+	xpm_img = mlx_xpm_file_to_image(p_mlx, WALL, &size, &size);
+	ft_lstadd_back(&xpm_lst, ft_lstnew(xpm_img));
+	xpm_img = mlx_xpm_file_to_image(p_mlx, PLAYER, &size, &size);
+	ft_lstadd_back(&xpm_lst, ft_lstnew(xpm_img));
+	xpm_img = mlx_xpm_file_to_image(p_mlx, EXIT, &size, &size);
+	ft_lstadd_back(&xpm_lst, ft_lstnew(xpm_img));
+	xpm_img = mlx_xpm_file_to_image(p_mlx, COLLECT, &size, &size);
+	ft_lstadd_back(&xpm_lst, ft_lstnew(xpm_img));
+	xpm_img = mlx_xpm_file_to_image(p_mlx, DEVIL, &size, &size);
+	ft_lstadd_back(&xpm_lst, ft_lstnew(xpm_img));
+	return (xpm_lst);
 }
