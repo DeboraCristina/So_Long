@@ -1,15 +1,5 @@
 #include "solong.h"
 
-t_image	*find_player(t_list *objs)
-{
-	t_image	*img;
-
-	img = (t_image *) objs->content;
-	if (ft_strcmp(img->name, "2"))
-		img = find_player(objs->next);
-	return (img);
-}
-
 void	so_long(t_map *p_map)
 {
 	t_mlx	solong;

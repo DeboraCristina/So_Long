@@ -7,9 +7,9 @@
 # include <mlx.h>
 
 # include "libft.h"
+# include "key_maps.h"
 # include "images.h"
 # include "types.h"
-# include "key_maps.h"
 
 # define SIZE 32
 
@@ -34,6 +34,7 @@ void	init_display(t_mlx *solong, t_map *p_map);
 void	events_hook(t_mlx *solong);
 
 // moviments
-int	ft_is_key_move(int key);
+void	move(t_list *objs, int mx, int my);
+void	move_player(int key, t_mlx *solong);
 
 #endif

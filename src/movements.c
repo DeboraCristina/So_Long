@@ -1,27 +1,39 @@
 #include "solong.h"
 
-/*
-# define K_W 119
-# define K_A 97
-# define K_S 115
-# define K_D 100
-# define K_UP 65362
-# define K_DOWN 65364
-# define K_LEFT 65361
-# define K_RIGHT 65363
-*/
-
-int	ft_is_key_move(int key)
+static t_image	*ft_find_objs_by_name(t_list *objs, char *elem)
 {
-	if (key == K_W || key == K_S || key == k_A || key == K_D)
-		return (1);
-	if (key == K_UP || key == K_DOWN || key == k_LEFT || key == K_RIGHT)
-		return (1);
-	return (0);
+	t_image	*img;
+
+	img = (t_image *) objs->content;
+	if (ft_strcmp(img->name, elem))
+		img = ft_find_objs_by_name(objs->next, elem);
+	return (img);
 }
 
-void	move_player(int key, t_mlx *solong)
+static t_image	*ft_find_objs_by_position(t_list *objs, int x, int y)
 {
-	if (key == k_W || key == k_UP)
-		ft_printf("sobe\n");
+	t_image	*img;
+
+	img = (t_image *) objs->content;
+	if (img->y != y || img->x != x)
+		img = ft_find_objs_by_position(objs->next, x, y);
+	return (img);
+}
+
+void	move(t_list *objs, int mx, int my)
+{
+	char	*old_name;
+	t_image	*player;
+	t_image	*tile;
+	
+	if (!objs)
+		return ;
+	player = ft_find_objs_by_name(objs, "2");
+	tile = ft_find_objs_by_position(objs, (player->x + mx), (player->y + my));
+	if (ft_strcmp(tile->name, "1"))
+	{
+		old_name = tile->name;
+		tile->name = player->name;
+		player->name = old_name;
+	}
 }
