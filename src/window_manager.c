@@ -15,6 +15,7 @@ void	init_display(t_mlx *solong, t_map *p_map)
 		solong -> win.height, \
 		"So_Long");
 	solong -> status = 1;
+	solong -> movements = 0;
 }
 
 void	events_hook(t_mlx *solong)

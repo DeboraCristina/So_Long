@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 {
 	t_map	v_map;
 
-	
+	system("clear");
 	if (argc < 2)
 	{
 		ft_printf("Cade o mapa jamanta?!\n");

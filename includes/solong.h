@@ -33,7 +33,9 @@ int		render(t_mlx *solong);
 void	init_display(t_mlx *solong, t_map *p_map);
 void	events_hook(t_mlx *solong);
 
-// moviments
+// movements
+void	show_movements(int move);
+void	execute_movement(t_mlx *solong, t_image *player, t_image *tile);
 void	move(t_mlx *solong, t_list *objs, int mx, int my);
 void	move_player(int key, t_mlx *solong);
 

@@ -1,11 +1,11 @@
 #include "solong.h"
 
-static void	*ft_find_image(t_list *imgs, char *index)
+static void	*ft_find_image(t_list *imgs, int index)
 {
 	int	i;
 
 	i = 0;
-	while (i < ft_atoi(index))
+	while (i < index)
 	{
 		imgs = imgs->next;
 		i ++;
@@ -25,7 +25,7 @@ static void	put_images(t_list *objs, t_mlx *solong)
 		img = (t_image *) objs->content;
 		x = img->x;
 		y = img->y;
-		elem = ft_find_image(solong->xpm_images, img->name);
+		elem = ft_find_image(solong->xpm_images, img->id);
 		put_images(objs->next, solong);
 		mlx_put_image_to_window(solong->init, solong->win.window, elem, x, y);
 	}

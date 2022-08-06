@@ -3,9 +3,9 @@
 
 typedef struct s_image
 {
-	char	*name;
-	int		x;
-	int		y;
+	int	id;
+	int	x;
+	int	y;
 }	t_image;
 
 typedef struct s_map
@@ -28,6 +28,7 @@ typedef struct s_mlx
 	t_window	win;
 	t_list		*objs;
 	t_list		*xpm_images;
+	int			movements;
 	int			status;
 }	t_mlx;
 

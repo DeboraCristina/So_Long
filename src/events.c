@@ -27,7 +27,6 @@ void	move_player(int key, t_mlx *solong)
 
 int	key_release(int key, t_mlx *solong)
 {
-	//ft_printf("%d\n", key);
 	if (key == K_ESCAPE)
 		close_window(solong);
 	else if (key == K_W || key == K_S || key == K_A || key == K_D)

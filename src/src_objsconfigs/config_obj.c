@@ -1,23 +1,23 @@
 #include "solong.h"
 
-char	*get_name(char c)
+int	get_id(char c)
 {
-	char	*name;
+	int	id;
 
-	name = NULL;
+	id = 0;
 	if (c == '1')
-		name = "1";
+		id = 1;
 	else if (c == 'P')
-		name = "2";
+		id = 2;
 	else if (c == 'E')
-		name = "3";
+		id = 3;
 	else if (c == 'C')
-		name = "4";
+		id = 4;
 	else if (c == 'D')
-		name = "5";
+		id = 5;
 	else
-		name = "0";
-	return (name);
+		id = 0;
+	return (id);
 }
 
 t_list	*gen_objects(t_map *p_map)
@@ -32,7 +32,7 @@ t_list	*gen_objects(t_map *p_map)
 		img = (t_image *) malloc(sizeof(t_image));
 		img->x = ((c % (p_map->width - 1)) * 32);
 		img->y = ((c / (p_map->width - 1)) * 32);
-		img->name = get_name(p_map->mapping[c]);
+		img->id = get_id(p_map->mapping[c]);
 		if (c == 0)
 			objs = ft_lstnew(img);
 		else
