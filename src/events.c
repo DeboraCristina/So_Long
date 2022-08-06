@@ -11,6 +11,20 @@ int	close_window(t_mlx *solong)
 	return (0);
 }
 
+void	move_player(int key, t_mlx *solong)
+{
+	if (!solong || !solong->status)
+		return ;
+	if (key == K_W || key == K_UP)
+		move(solong, solong->objs, 0, -SIZE);
+	else if (key == K_S || key == K_DOWN)
+		move(solong, solong->objs, 0, SIZE);
+	else if (key == K_A || key == K_LEFT)
+		move(solong, solong->objs, -SIZE, 0);
+	else if (key == K_D || key == K_RIGHT)
+		move(solong, solong->objs, SIZE, 0);
+}
+
 int	key_release(int key, t_mlx *solong)
 {
 	//ft_printf("%d\n", key);
@@ -21,18 +35,4 @@ int	key_release(int key, t_mlx *solong)
 	else if (key == K_UP || key == K_DOWN || key == K_LEFT || key == K_RIGHT)
 		move_player(key, solong);
 	return (0);
-}
-
-void	move_player(int key, t_mlx *solong)
-{
-	if (!solong)
-		return ;
-	if (key == K_W || key == K_UP)
-		move(solong->objs, 0, -SIZE);
-	else if (key == K_S || key == K_DOWN)
-		move(solong->objs, 0, SIZE);
-	else if (key == K_A || key == K_LEFT)
-		move(solong->objs, -SIZE, 0);
-	else if (key == K_D || key == K_RIGHT)
-		move(solong->objs, SIZE, 0);
 }

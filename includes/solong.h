@@ -34,7 +34,7 @@ void	init_display(t_mlx *solong, t_map *p_map);
 void	events_hook(t_mlx *solong);
 
 // moviments
-void	move(t_list *objs, int mx, int my);
+void	move(t_mlx *solong, t_list *objs, int mx, int my);
 void	move_player(int key, t_mlx *solong);
 
 #endif
