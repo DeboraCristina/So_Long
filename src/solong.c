@@ -6,7 +6,7 @@
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:17:54 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/08 09:17:57 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/08 15:56:46 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 	t_map	v_map;
 
 	system("clear");
+	ft_printf("Move: 0\n");
 	if (argc < 2)
 	{
 		ft_printf("Cade o mapa jamanta?!\n");

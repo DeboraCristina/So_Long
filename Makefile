@@ -10,14 +10,15 @@ SRCS_OBJS	=	$(addprefix src_objsconfigs/, config_obj \
 SRCS_MAPS	=	$(addprefix src_map/, verify_map \
 				map_configs verify_map_utils)
 
-SRCS_MOVE	=	$(addprefix src_movements/, movements_utils)
+SRCS_UTILS	=	$(addprefix src_utils/, movements_utils\
+				events window_manager map_manager \
+				reder_images movements_manager)
 
-SRCS		=	solong events window_manager map_manager \
-				reder_images movements_manager
+SRCS		=	solong
 
 FULL_SRCS	=	$(addsuffix $(EXT_SUFFIX), \
 				$(addprefix $(PATH_PREFIX), \
-				$(SRCS) $(SRCS_MAPS) $(SRCS_OBJS) $(SRCS_MOVE)))
+				$(SRCS) $(SRCS_MAPS) $(SRCS_OBJS) $(SRCS_UTILS)))
 
 OBJS		=	$(FULL_SRCS:%.c=%.o)
 
