@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   movements_manager.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/08 09:26:27 by desilva           #+#    #+#             */
+/*   Updated: 2022/08/08 09:31:05 by desilva          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "solong.h"
 
 static t_image	*ft_find_objs_by_id(t_list *objs, int id)
@@ -5,7 +17,7 @@ static t_image	*ft_find_objs_by_id(t_list *objs, int id)
 	t_image	*img;
 
 	if (!objs)
-		return (t_image *)NULL;
+		return ((t_image *) NULL);
 	img = (t_image *) objs->content;
 	if (img->id != id)
 		img = ft_find_objs_by_id(objs->next, id);
@@ -17,7 +29,7 @@ static t_image	*ft_find_objs_by_position(t_list *objs, int x, int y)
 	t_image	*img;
 
 	if (!objs)
-		return (t_image *)NULL;
+		return ((t_image *) NULL);
 	img = (t_image *) objs->content;
 	if (img->y != y || img->x != x)
 		img = ft_find_objs_by_position(objs->next, x, y);

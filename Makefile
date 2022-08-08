@@ -4,17 +4,20 @@ PATH_PREFIX	=	src/
 
 EXT_SUFFIX	=	.c
 
-SRCS_OBJS	=	src_objsconfigs/config_obj src_objsconfigs/ft_destroy_images \
+SRCS_OBJS	=	$(addprefix src_objsconfigs/, config_obj \
+				ft_destroy_images)
 
-SRCS_MAPS	=	src_map/verify_map src_map/map_configs \
-				src_map/verify_map_utils \
+SRCS_MAPS	=	$(addprefix src_map/, verify_map \
+				map_configs verify_map_utils)
 
-SRCS_MOVE	=	$(addprefix src_movements/, movements_utils_01)
+SRCS_MOVE	=	$(addprefix src_movements/, movements_utils)
 
 SRCS		=	solong events window_manager map_manager \
 				reder_images movements_manager
 
-FULL_SRCS	=	$(addsuffix $(EXT_SUFFIX), $(addprefix $(PATH_PREFIX), $(SRCS) $(SRCS_MAPS) $(SRCS_OBJS) $(SRCS_MOVE)))
+FULL_SRCS	=	$(addsuffix $(EXT_SUFFIX), \
+				$(addprefix $(PATH_PREFIX), \
+				$(SRCS) $(SRCS_MAPS) $(SRCS_OBJS) $(SRCS_MOVE)))
 
 OBJS		=	$(FULL_SRCS:%.c=%.o)
 
@@ -30,8 +33,8 @@ AR			=	ar -rc
 
 MAKENOPRINT	=	make --no-print-directory
 
-MLX_PATH	=	minilibx-linux/
-MLX_FLAGS	=	-Iminilibx-linux -Lminilibx-linux -lmlx  -lXext -lX11 -lm
+MLX_PATH	=	mlx/
+MLX_FLAGS	=	-I$(MLX_PATH) -L$(MLX_PATH) -lmlx  -lXext -lX11 -lm
 
 # MLX_FLAGS	=	-lmlx  -lXext -lX11 -lm
 

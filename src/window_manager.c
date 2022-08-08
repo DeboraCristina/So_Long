@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   window_manager.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/08 09:17:40 by desilva           #+#    #+#             */
+/*   Updated: 2022/08/08 09:32:31 by desilva          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "solong.h"
 
 void	init_display(t_mlx *solong, t_map *p_map)
@@ -20,7 +32,6 @@ void	init_display(t_mlx *solong, t_map *p_map)
 
 void	events_hook(t_mlx *solong)
 {
-	mlx_hook(solong -> win.window, 17, 1<<24, close_window, solong);
+	mlx_hook(solong -> win.window, 17, 1 << 24, close_window, solong);
 	mlx_key_hook(solong -> win.window, key_release, solong);
 }
-

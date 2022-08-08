@@ -6,7 +6,7 @@
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:39:34 by desilva           #+#    #+#             */
-/*   Updated: 2022/07/25 13:39:35 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/08 09:27:28 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,3 @@ void	gen_minimuns(int *minimum, char *name)
 	}
 	close(fd);
 }
-
