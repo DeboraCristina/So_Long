@@ -6,7 +6,7 @@
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:28:01 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/08 09:28:28 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:07:26 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ t_list	*gen_objects(t_map *p_map)
 	while (p_map->mapping[c])
 	{
 		img = (t_image *) malloc(sizeof(t_image));
+		if (!img)
+			put_error(MALLOC);
 		img->x = ((c % (p_map->width - 1)) * 32);
 		img->y = ((c / (p_map->width - 1)) * 32);
 		img->id = get_id(p_map->mapping[c]);

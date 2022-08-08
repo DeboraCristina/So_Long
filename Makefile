@@ -12,7 +12,8 @@ SRCS_MAPS	=	$(addprefix src_map/, verify_map \
 
 SRCS_UTILS	=	$(addprefix src_utils/, movements_utils\
 				events window_manager map_manager \
-				reder_images movements_manager)
+				reder_images movements_manager \
+				error_manager)
 
 SRCS		=	solong
 

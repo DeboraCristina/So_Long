@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements_utils_01.c                               :+:      :+:    :+:   */
+/*   movements_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:28:55 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/08 09:29:38 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:04:45 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 static void	end_game(int type)
 {
 	if (type == 3)
-		ft_printf("Congratulations! You win!!\n");
+		ft_printf("\e[1;92mCongratulations! You win!!\e[0m\n");
 	else
-		ft_printf("Loooser!\n");
-	ft_printf("Press ´ESC´ to exit.\n");
+		ft_printf("\e[1;93mLoooser!\e[0m\n");
+	ft_printf("\e[1;97mPress ´ESC´ to exit.\e[0m\n");
 }
 
 void	show_movements(int move)
 {
 	system("clear");
-	ft_printf("Move: %d\n", move);
+	ft_printf("\e[1;97mMove: %d\e[0m\n", move);
 }
 
 void	execute_movement(t_mlx *solong, t_image *player, t_image *tile)

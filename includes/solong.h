@@ -6,7 +6,7 @@
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:34:32 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/08 09:34:32 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/08 18:55:56 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SOLONG_H
 
 # include <unistd.h>
+# include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
 # include <mlx.h>
@@ -24,6 +25,13 @@
 # include "types.h"
 
 # define SIZE 32
+
+// errors
+# define MALLOC 0
+# define INIT 1
+
+int	print_error(int error);
+void	put_error(int error);
 
 // objects
 char	*get_name(char c);
@@ -42,7 +50,7 @@ int		key_release(int key, t_mlx *solong);
 int		render(t_mlx *solong);
 
 // window manage
-void	init_display(t_mlx *solong, t_map *p_map);
+int	init_display(t_mlx *solong, t_map *p_map);
 void	events_hook(t_mlx *solong);
 
 // movements

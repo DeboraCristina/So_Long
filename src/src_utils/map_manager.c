@@ -6,7 +6,7 @@
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:26:33 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/08 09:26:33 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/08 18:38:28 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,18 @@
 
 int	check_map(char *name)
 {
-	char	*error;
+	int	error;
 
-	error = NULL;
+	error = 0;
 	if (!check_map_name(name))
-	{
-		error = "name";
-	}
+		error = ft_printf("\e[1;91mError:Invalid map name.\n");
 	else if (!valid_map_elements(name))
-	{
-		error = "format";
-	}
+		error = ft_printf("\e[1;91mError:Invalid map format.\n");
 	else if (!minimum_elements(name))
-	{
-		error = "minimum elements";
-	}
+		error = ft_printf("\e[1;91mError:Minimum requirements are missing.\n");
 	if (error)
-	{
-		ft_printf("Error! -- %s --\n", error);
-		return (0);
-	}
-	return (1);
+		exit(1);
+	return (0);
 }
 
 t_map	map_generator(char *name)
@@ -47,6 +38,8 @@ t_map	map_generator(char *name)
 	fd = open(name, O_RDONLY);
 	line = gnl(fd);
 	v_map.mapping = ft_calloc(row_counter(name) * ft_strlen(line), 1);
+	if (!v_map.mapping)
+		put_error(MALLOC);
 	v_map.height = row_counter(name);
 	gen_maplst(name, &v_map);
 	free(line);
