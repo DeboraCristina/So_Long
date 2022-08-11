@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solong.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
+/*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:17:54 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/08 19:04:58 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/11 15:53:27 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 	}
 	check_map(argv[1]);
 	v_map = map_generator(argv[1]);
-	ft_printf("\e[1;97mMove: 0\e[0m\n");
+	ft_printf("\e[1;97mMove: 0\nFruits: 0\e[0m\n");
 	so_long(&v_map);
 	free(v_map.mapping);
 	return (0);

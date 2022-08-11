@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   window_manager.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
+/*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:17:40 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/08 19:01:26 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/11 15:33:29 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
+
+static int	ft_count_collectibles(char *mapping)
+{
+	int	i;
+	int	c;
+
+	i = 0;
+	c = 0;
+	while (mapping && mapping[i])
+	{
+		if (mapping[i] == 'C')
+			c++;
+		i++;
+	}
+	return (c);
+}
 
 int	init_display(t_mlx *solong, t_map *p_map)
 {
@@ -35,6 +51,8 @@ int	init_display(t_mlx *solong, t_map *p_map)
 	}
 	solong -> status = 1;
 	solong -> movements = 0;
+	solong -> collectibles = 0;
+	solong -> total_collectibles = ft_count_collectibles(p_map->mapping);
 	return (0);
 }
 

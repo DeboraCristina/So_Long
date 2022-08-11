@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
+/*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:34:25 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/08 09:35:29 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/11 15:33:11 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_mlx
 	t_list		*xpm_images;
 	int			movements;
 	int			status;
+	int			total_collectibles;
+	int			collectibles;
 }	t_mlx;
 
 #endif

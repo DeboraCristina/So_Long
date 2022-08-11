@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solong.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
+/*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:34:32 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/08 18:55:56 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/11 16:00:47 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	init_display(t_mlx *solong, t_map *p_map);
 void	events_hook(t_mlx *solong);
 
 // movements
-void	show_movements(int move);
 void	execute_movement(t_mlx *solong, t_image *player, t_image *tile);
 void	move(t_mlx *solong, t_list *objs, int mx, int my);
 void	move_player(int key, t_mlx *solong);
