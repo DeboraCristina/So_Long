@@ -6,7 +6,7 @@
 /*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:17:54 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/11 15:53:27 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/11 16:28:12 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	system("clear");
 	if (argc < 2)
 	{
-		ft_printf("\e[1;91mError:\e[0;91mNo arguments.\n");
+		ft_printf("\e[1;91mError\n\e[0;91mNo arguments.\n");
 		return (1);
 	}
 	check_map(argv[1]);
