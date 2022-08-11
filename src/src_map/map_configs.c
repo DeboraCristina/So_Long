@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_configs.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
+/*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:39:25 by desilva           #+#    #+#             */
-/*   Updated: 2022/07/25 13:39:26 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/11 15:13:50 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,20 @@ void	gen_maplst(char *name, t_map *p_map)
 				p_map->mapping[ft_strlen(p_map->mapping)] = line[count];
 			count ++;
 		}
-		p_map->width = ft_strlen(line);
 		free(line);
 		line = gnl(fd);
 	}
+	close(fd);
+}
+
+void	get_map_width(char *name, t_map *p_map)
+{
+	int		fd;
+	char	*line;
+
+	fd = open(name, O_RDONLY);
+	line = gnl(fd);
+	p_map->width = ft_strlen(line);
+	free(line);
 	close(fd);
 }

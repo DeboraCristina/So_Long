@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_manager.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
+/*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:26:33 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/08 18:38:28 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/11 15:14:16 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ t_map	map_generator(char *name)
 		put_error(MALLOC);
 	v_map.height = row_counter(name);
 	gen_maplst(name, &v_map);
+	get_map_width(name, &v_map);
 	free(line);
 	close(fd);
 	return (v_map);
