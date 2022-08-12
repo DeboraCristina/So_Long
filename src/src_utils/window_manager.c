@@ -6,7 +6,7 @@
 /*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:17:40 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/11 15:33:29 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/12 17:10:34 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ int	init_display(t_mlx *solong, t_map *p_map)
 		return (print_error(INIT));
 	solong -> win.width = width;
 	solong -> win.height = height;
-	solong -> win.window = mlx_new_window(solong -> init, \
-		solong -> win.width, \
+	solong -> win.window = mlx_new_window(solong -> init, solong -> win.width, \
 		solong -> win.height, \
 		"So_Long");
 	if (!solong -> win.window)

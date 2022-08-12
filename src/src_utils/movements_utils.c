@@ -6,7 +6,7 @@
 /*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:28:55 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/11 16:12:19 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/12 16:49:32 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,8 @@ static void	ft_end_game(t_mlx *solong, t_image *player, int tile_id)
 void	execute_movement(t_mlx *solong, t_image *player, t_image *tile)
 {
 	system("clear");
-	if (tile->id == 1)
-		return ;
-	++solong->movements;
+	if (tile->id != 1)
+		++solong->movements;
 	if (tile->id == 0)
 		ft_swap_int(&tile->id, &player->id);
 	else if (tile->id == 3 || tile->id == 5)

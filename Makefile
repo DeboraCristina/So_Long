@@ -35,10 +35,7 @@ AR			=	ar -rc
 
 MAKENOPRINT	=	make --no-print-directory
 
-MLX_PATH	=	mlx/
-MLX_FLAGS	=	-I$(MLX_PATH) -L$(MLX_PATH) -lmlx  -lXext -lX11 -lm
-
-# MLX_FLAGS	=	-lmlx  -lXext -lX11 -lm
+MLX_FLAGS	=	-lmlx  -lXext -lX11 -lm
 
 LFTNAME		=	libft_bonus.a
 
@@ -47,10 +44,9 @@ LFTPATH		= ./Libft
 LFTFLAGS	=	-I$(LFTPATH) -L$(LFTPATH) -lft_bonus
 
 %.o:	%.c
-	@$(COMPILER) $(FLAGS) -I$(INCLUDE) -I$(LFTPATH) -I$(MLX_PATH) -g3 -c $< -o $(<:%.c=%.o)
+	@$(COMPILER) $(FLAGS) -I$(INCLUDE) -I$(LFTPATH) -g3 -c $< -o $(<:%.c=%.o)
 
 $(NAME):	$(LFTNAME) $(OBJS) $(MLX_PATH)
-	@$(MAKENOPRINT) -C $(MLX_PATH)
 	@$(COMPILER) $(OBJS) $(MLX_FLAGS) $(LFTFLAGS) -g3 -o $(NAME)
 
 $(LFTNAME):
@@ -59,7 +55,6 @@ $(LFTNAME):
 all:	$(NAME)
 
 clean:
-	@$(MAKENOPRINT) clean -C $(MLX_PATH)
 	@$(REMOVE) $(OBJS)
 
 fclean:	clean

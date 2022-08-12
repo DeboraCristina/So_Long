@@ -6,7 +6,7 @@
 /*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:34:25 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/11 15:33:11 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/12 17:10:21 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_map
 	char	*mapping;
 	int		width;
 	int		height;
+	int			player;
 }	t_map;
 
 typedef struct s_window
