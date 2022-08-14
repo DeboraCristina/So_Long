@@ -12,14 +12,42 @@
 
 #include "solong.h"
 
-void	move(t_mlx *solong, t_list *objs, int mx, int my)
+t_image	*ft_find_objs_by_id(t_list *objs, int id)
 {
-	t_image	*player;
+	t_image	*img;
+
+	if (!objs)
+		return ((t_image *) NULL);
+	img = (t_image *) objs->content;
+	if (img->id != id)
+		img = ft_find_objs_by_id(objs->next, id);
+	return (img);
+}
+
+t_image	*ft_find_objs_by_position(t_list *objs, int x, int y)
+{
+	t_image	*img;
+
+	if (!objs)
+		return ((t_image *) NULL);
+	img = (t_image *) objs->content;
+	if (img->y != y || img->x != x)
+		img = ft_find_objs_by_position(objs->next, x, y);
+	return (img);
+}
+
+void	execute_movement(t_mlx *solong, t_image *entity, t_image *tile)
+{
+	if (entity->id == 2)
+		execute_movement_player(solong, entity, tile);
+}
+
+void	move(t_mlx *solong, t_image *ent, int mx, int my)
+{
 	t_image	*tile;
 
-	if (!objs || !solong)
+	if (!solong->objs || !solong)
 		return ;
-	player = ft_find_objs_by_id(objs, 2);
-	tile = ft_find_objs_by_position(objs, (player->x + mx), (player->y + my));
-	execute_movement(solong, player, tile);
+	tile = ft_find_objs_by_position(solong->objs, (ent->x + mx), (ent->y + my));
+	execute_movement(solong, ent, tile);
 }

@@ -12,30 +12,6 @@
 
 #include "solong.h"
 
-t_image	*ft_find_objs_by_id(t_list *objs, int id)
-{
-	t_image	*img;
-
-	if (!objs)
-		return ((t_image *) NULL);
-	img = (t_image *) objs->content;
-	if (img->id != id)
-		img = ft_find_objs_by_id(objs->next, id);
-	return (img);
-}
-
-t_image	*ft_find_objs_by_position(t_list *objs, int x, int y)
-{
-	t_image	*img;
-
-	if (!objs)
-		return ((t_image *) NULL);
-	img = (t_image *) objs->content;
-	if (img->y != y || img->x != x)
-		img = ft_find_objs_by_position(objs->next, x, y);
-	return (img);
-}
-
 static void	ft_end_game(t_mlx *solong, t_image *player, int tile_id)
 {
 	if (solong->collectibles == solong->total_collectibles || tile_id == 5)
@@ -47,7 +23,7 @@ static void	ft_end_game(t_mlx *solong, t_image *player, int tile_id)
 		ft_printf("\e[1;93mYou need to collect all the fruits to get out.\e[0m\n");
 }
 
-void	execute_movement(t_mlx *solong, t_image *player, t_image *tile)
+void	execute_movement_player(t_mlx *solong, t_image *player, t_image *tile)
 {
 	system("clear");
 	if (tile->id != 1)
@@ -65,4 +41,21 @@ void	execute_movement(t_mlx *solong, t_image *player, t_image *tile)
 	ft_show_status(solong);
 	if (!solong->status)
 		ft_show_final_message(tile->id);
+}
+
+void	move_player(int key, t_mlx *solong)
+{
+	t_image	*player;
+
+	if (!solong || !solong->status)
+		return ;
+	player = ft_find_objs_by_id(solong->objs, 2);
+	if (key == K_W || key == K_UP)
+		move(solong, player, 0, -SIZE);
+	else if (key == K_S || key == K_DOWN)
+		move(solong, player, 0, SIZE);
+	else if (key == K_A || key == K_LEFT)
+		move(solong, player, -SIZE, 0);
+	else if (key == K_D || key == K_RIGHT)
+		move(solong, player, SIZE, 0);
 }
