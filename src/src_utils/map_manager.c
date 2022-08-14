@@ -6,7 +6,7 @@
 /*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:26:33 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/11 16:27:03 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/13 03:57:50 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_map	map_generator(char *name)
 	if (!v_map.mapping)
 		put_error(MALLOC);
 	v_map.height = row_counter(name);
+	v_map.player = 0;
 	gen_maplst(name, &v_map);
 	get_map_width(name, &v_map);
 	free(line);

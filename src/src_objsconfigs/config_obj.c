@@ -6,13 +6,13 @@
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:28:01 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/08 19:07:26 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/13 03:56:31 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-int	get_id(char c)
+int	get_id(char c, t_map *p_map)
 {
 	int	id;
 
@@ -20,7 +20,15 @@ int	get_id(char c)
 	if (c == '1')
 		id = 1;
 	else if (c == 'P')
-		id = 2;
+	{
+		if (!p_map->player)
+		{
+			id = 2;
+			p_map->player = 1;
+		}
+		else
+			id = 0;
+	}
 	else if (c == 'E')
 		id = 3;
 	else if (c == 'C')
@@ -46,7 +54,7 @@ t_list	*gen_objects(t_map *p_map)
 			put_error(MALLOC);
 		img->x = ((c % (p_map->width - 1)) * 32);
 		img->y = ((c / (p_map->width - 1)) * 32);
-		img->id = get_id(p_map->mapping[c]);
+		img->id = get_id(p_map->mapping[c], p_map);
 		if (c == 0)
 			objs = ft_lstnew(img);
 		else
