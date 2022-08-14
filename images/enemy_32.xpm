@@ -1,13 +1,12 @@
 /* XPM */
-static char *ecd992ec14244331b56605b95d5b73726Vpd5PtFiW3neTDf[] = {
+static char *_3e0e322678d49a79711dbb7c262ad19t1grlQJR4jrJuUDU[] = {
 /* columns rows colors chars-per-pixel */
-"32 32 6 1 ",
+"32 32 5 1 ",
 "  c None",
 ". c #61567D",
 "X c #8C76BE",
 "o c #EA92AB",
 "O c #F4C4D4",
-"+ c white",
 /* pixels */
 "              oooo    OOOO      ",
 "              oooo    OOOO      ",
@@ -27,18 +26,18 @@ static char *ecd992ec14244331b56605b95d5b73726Vpd5PtFiW3neTDf[] = {
 "            ..ooooooooooOOOO..  ",
 "              ..............    ",
 "              ..............    ",
-"      oo                        ",
-"      oo                        ",
-"    oo++OO        ....          ",
-"    oo++OO        ....          ",
-"  ooOOOO..    XX..OOOO..        ",
-"  ooOOOO..    XX..OOOO..        ",
-"    ....    XXoo..OOOO..        ",
-"    ....    XXoo..OOOO..        ",
-"            XXoooo..OO..        ",
-"            XXoooo..OO..        ",
-"          XXoooooo..OOOO..      ",
-"          XXoooooo..OOOO..      ",
-"          XXooooXX  ..oo..      ",
-"          XXooooXX  ..oo..      "
+"      OO                        ",
+"      OO                        ",
+"    OOoo        ....            ",
+"    OOoo        ....            ",
+"    ooOOoooo  ..OOOO..XX        ",
+"    ooOOoooo  ..OOOO..XX        ",
+"      ....    ..OOOO..ooXX      ",
+"      ....    ..OOOO..ooXX      ",
+"              ..OOOO..ooXX      ",
+"              ..OOOO..ooXX      ",
+"              ..OOOO..ooXX      ",
+"              ..OOOO..ooXX      ",
+"              ..oooo..ooXX      ",
+"              ..oooo..ooXX      "
 };

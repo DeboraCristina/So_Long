@@ -6,7 +6,7 @@
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:34:36 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/08 09:34:36 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/13 21:46:11 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@
 # define PLAYER		"./images/player_32.xpm"
 # define EXIT		"./images/exit_32.xpm"
 # define COLLECT	"./images/collectible_32.xpm"
-# define DEVIL		"./images/Enemy_32.xpm"
+# define DEVIL		"./images/enemy_32.xpm"
 
 #endif
