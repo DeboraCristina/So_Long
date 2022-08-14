@@ -6,7 +6,7 @@
 /*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:34:32 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/11 16:00:47 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/14 06:32:27 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,14 @@ int	init_display(t_mlx *solong, t_map *p_map);
 void	events_hook(t_mlx *solong);
 
 // movements
+t_image	*ft_find_objs_by_id(t_list *objs, int id);
+t_image	*ft_find_objs_by_position(t_list *objs, int x, int y);
 void	execute_movement(t_mlx *solong, t_image *player, t_image *tile);
 void	move(t_mlx *solong, t_list *objs, int mx, int my);
 void	move_player(int key, t_mlx *solong);
+
+// messages
+void	ft_show_status(t_mlx *solong);
+void	ft_show_final_message(int type);
 
 #endif

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements_manager.c                                :+:      :+:    :+:   */
+/*   show_messages.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/08 09:26:27 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/14 06:33:20 by desilva          ###   ########.fr       */
+/*   Created: 2022/08/14 06:28:49 by desilva           #+#    #+#             */
+/*   Updated: 2022/08/14 06:32:10 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-void	move(t_mlx *solong, t_list *objs, int mx, int my)
+void	ft_show_final_message(int type)
 {
-	t_image	*player;
-	t_image	*tile;
+	if (type == 3)
+		ft_printf("\e[1;92mCongratulations! You win!!\e[0m\n");
+	else
+		ft_printf("\e[1;93mCongratulations! You lose!\e[0m\n");
+	ft_printf("\e[1;97mPress ´ESC´ to exit.\e[0m\n");
+}
 
-	if (!objs || !solong)
-		return ;
-	player = ft_find_objs_by_id(objs, 2);
-	tile = ft_find_objs_by_position(objs, (player->x + mx), (player->y + my));
-	execute_movement(solong, player, tile);
+void	ft_show_status(t_mlx *solong)
+{
+	ft_printf("\e[1;97mMove: %d\e[0m\n", solong->movements);
+	ft_printf("\e[1;97mFruits: %d\e[0m\n", solong->collectibles);
 }

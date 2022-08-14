@@ -6,25 +6,34 @@
 /*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:28:55 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/12 16:49:32 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/14 06:31:07 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-static void	ft_show_final_message(int type)
+t_image	*ft_find_objs_by_id(t_list *objs, int id)
 {
-	if (type == 3)
-		ft_printf("\e[1;92mCongratulations! You win!!\e[0m\n");
-	else
-		ft_printf("\e[1;93mCongratulations! You lose!\e[0m\n");
-	ft_printf("\e[1;97mPress ´ESC´ to exit.\e[0m\n");
+	t_image	*img;
+
+	if (!objs)
+		return ((t_image *) NULL);
+	img = (t_image *) objs->content;
+	if (img->id != id)
+		img = ft_find_objs_by_id(objs->next, id);
+	return (img);
 }
 
-static void	ft_show_status(t_mlx *solong)
+t_image	*ft_find_objs_by_position(t_list *objs, int x, int y)
 {
-	ft_printf("\e[1;97mMove: %d\e[0m\n", solong->movements);
-	ft_printf("\e[1;97mFruits: %d\e[0m\n", solong->collectibles);
+	t_image	*img;
+
+	if (!objs)
+		return ((t_image *) NULL);
+	img = (t_image *) objs->content;
+	if (img->y != y || img->x != x)
+		img = ft_find_objs_by_position(objs->next, x, y);
+	return (img);
 }
 
 static void	ft_end_game(t_mlx *solong, t_image *player, int tile_id)
