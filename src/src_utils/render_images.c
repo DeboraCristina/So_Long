@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reder_images.c                                     :+:      :+:    :+:   */
+/*   render_images.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:26:03 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/12 17:08:03 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/14 03:15:34 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,13 @@ int	render(t_mlx *solong)
 	if (!solong)
 		return (1);
 	put_images(solong->objs, solong);
+	int i;
+	i = solong->collectibles++;
+	if (i / 2000)
+	{
+		move_player(K_D, solong);
+		solong->collectibles = 0;
+	}
+	ft_printf("%d\n", i);
 	return (0);
 }
