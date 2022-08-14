@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	system("clear");
 	if (argc < 2)
 	{
-		ft_printf("\e[1;91mError\n\e[0;91mNo arguments.\n");
+		ft_printf("\e[1;91mError\nNo arguments.\e[0m\n");
 		return (1);
 	}
 	check_map(argv[1]);

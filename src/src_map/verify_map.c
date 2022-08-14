@@ -62,3 +62,31 @@ int	check_map_name(char *name)
 		return (0);
 	return (1);
 }
+
+int	check_extra_elements(char *name)
+{
+	int		filedescriptor;
+	int		index;
+	char	*line;
+
+	filedescriptor = open(name, O_RDONLY);
+	if (filedescriptor < 0)
+		return (0);
+	line = gnl(filedescriptor);
+	while (line)
+	{
+		index = 0;
+		while (line[index])
+		{
+			if (!check_char("01PCED\n", line))
+			{
+				free(line);
+				return (0);
+			}
+			index++;
+		}
+		free(line);
+		line = gnl(filedescriptor);
+	}
+	return (1);
+}

@@ -16,16 +16,23 @@
 int	check_map(char *name)
 {
 	int	error;
+	int	fd;
 
 	error = 0;
-	if (!check_map_name(name))
-		error = ft_printf("\e[1;91mError\nInvalid map name.\n");
+	fd = open(name, O_RDONLY);
+	if (fd < 0)
+		error = ft_printf("\e[1;91mError\nMap not found.\e[0m\n");
+	else if (!check_map_name(name))
+		error = ft_printf("\e[1;91mError\nInvalid map name.\e[0m\n");
+	else if (!check_extra_elements(name))
+		error = ft_printf("\e[1;91mError\nInvalid element found.\e[0m\n");
 	else if (!valid_map_elements(name))
-		error = ft_printf("\e[1;91mError\nInvalid map format.\n");
+		error = ft_printf("\e[1;91mError\nInvalid map format.\e[0m\n");
 	else if (!minimum_elements(name))
-		error = ft_printf("\e[1;91mError\nMinimum requirements are missing.\n");
+		error = ft_printf("\e[1;91mError\nMinimum requirements are missing.\e[0m\n");
 	if (error)
 		exit(1);
+	close(fd);
 	return (0);
 }
 

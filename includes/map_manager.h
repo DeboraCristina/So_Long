@@ -25,6 +25,7 @@ int		check_char(char *set, char *str);
 int		check_linelen(int *default_len, int index, char *row);
 int		valid_elements(int index, int last, char *row);
 void	gen_minimuns(int *minimum, char *name);
+int		check_extra_elements(char *name);
 
 // map configing
 void	gen_maplst(char *name, t_map *p_map);
