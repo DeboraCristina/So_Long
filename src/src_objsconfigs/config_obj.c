@@ -55,6 +55,7 @@ t_list	*gen_objects(t_map *p_map)
 		img->x = ((c % (p_map->width - 1)) * 32);
 		img->y = ((c / (p_map->width - 1)) * 32);
 		img->id = get_id(p_map->mapping[c], p_map);
+		img->dir = 1;
 		if (c == 0)
 			objs = ft_lstnew(img);
 		else

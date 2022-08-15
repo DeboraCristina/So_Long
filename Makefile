@@ -11,7 +11,7 @@ SRCS_MAPS	=	$(addprefix src_map/, verify_map \
 				map_configs verify_map_utils)
 
 SRCS_MOVE	=	$(addprefix src_movements/,movements_manager  \
-				movements_player)
+				movements_player movements_enemy)
 
 SRCS_UTILS	=	$(addprefix src_utils/, show_messages \
 				events window_manager map_manager \

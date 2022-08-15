@@ -58,8 +58,10 @@ t_image	*ft_find_objs_by_id(t_list *objs, int id);
 t_image	*ft_find_objs_by_position(t_list *objs, int x, int y);
 void	execute_movement(t_mlx *solong, t_image *player, t_image *tile);
 void	execute_movement_player(t_mlx *solong, t_image *player, t_image *tile);
+void	execute_movement_enemy(t_image *enemy, t_image *tile);
 void	move(t_mlx *solong, t_image *ent, int mx, int my);
 void	move_player(int key, t_mlx *solong);
+void	move_enemy(t_mlx *solong);
 
 // messages
 void	ft_show_status(t_mlx *solong);

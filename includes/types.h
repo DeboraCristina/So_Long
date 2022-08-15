@@ -18,6 +18,7 @@ typedef struct s_image
 	int	id;
 	int	x;
 	int	y;
+	int	dir;
 }	t_image;
 
 typedef struct s_map
