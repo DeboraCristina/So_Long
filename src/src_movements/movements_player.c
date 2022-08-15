@@ -12,7 +12,7 @@
 
 #include "solong.h"
 
-static void	ft_end_game(t_mlx *solong, t_image *player, int tile_id)
+void	ft_end_game(t_mlx *solong, t_image *player, int tile_id)
 {
 	if (solong->collectibles == solong->total_collectibles || tile_id == 5)
 	{
@@ -20,7 +20,7 @@ static void	ft_end_game(t_mlx *solong, t_image *player, int tile_id)
 		solong->status = 0;
 	}
 	else
-		ft_printf("\e[1;93mYou need to collect all the fruits to get out.\e[0m\n");
+		ft_printf("\e[1;93mYou can't leave yet.\e[0m\n");
 }
 
 void	execute_movement_player(t_mlx *solong, t_image *player, t_image *tile)

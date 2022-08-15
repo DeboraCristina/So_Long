@@ -18,7 +18,6 @@ void	ft_show_final_message(int type)
 		ft_printf("\e[1;92mCongratulations! You win!!\e[0m\n");
 	else
 		ft_printf("\e[1;93mCongratulations! You lose!\e[0m\n");
-	ft_printf("\e[1;97mPress ´ESC´ to exit.\e[0m\n");
 }
 
 void	ft_show_status(t_mlx *solong)

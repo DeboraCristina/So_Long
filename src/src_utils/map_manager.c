@@ -29,7 +29,7 @@ int	check_map(char *name)
 	else if (!valid_map_elements(name))
 		error = ft_printf("\e[1;91mError\nInvalid map format.\e[0m\n");
 	else if (!minimum_elements(name))
-		error = ft_printf("\e[1;91mError\nMinimum requirements are missing.\e[0m\n");
+		error = ft_printf("\e[1;91mError\nMinimum requirements are missing.\n");
 	if (error)
 		exit(1);
 	close(fd);

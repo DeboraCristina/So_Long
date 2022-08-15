@@ -26,7 +26,7 @@ typedef struct s_map
 	char	*mapping;
 	int		width;
 	int		height;
-	int			player;
+	int		player;
 }	t_map;
 
 typedef struct s_window
@@ -42,6 +42,7 @@ typedef struct s_mlx
 	t_window	win;
 	t_list		*objs;
 	t_list		*xpm_images;
+	int			time;
 	int			movements;
 	int			status;
 	int			total_collectibles;
