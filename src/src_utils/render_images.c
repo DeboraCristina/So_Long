@@ -6,7 +6,7 @@
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:26:03 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/14 06:27:47 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/18 15:53:53 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ int	render(t_mlx *solong)
 {
 	if (!solong)
 		return (1);
+	solong->time++;
+	if (solong->time / 999)
+	{
+		move_enemy(solong);
+		solong->time = 0;
+	}
 	put_images(solong->objs, solong);
 	return (0);
 }

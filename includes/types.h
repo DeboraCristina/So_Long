@@ -6,7 +6,7 @@
 /*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:34:25 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/12 17:10:21 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/18 15:55:29 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_map
 	char	*mapping;
 	int		width;
 	int		height;
-	int			player;
+	int		player;
 }	t_map;
 
 typedef struct s_window
@@ -44,8 +44,10 @@ typedef struct s_mlx
 	t_list		*xpm_images;
 	int			movements;
 	int			status;
+	int			time;
 	int			total_collectibles;
 	int			collectibles;
+	int			enemies;
 }	t_mlx;
 
 #endif
