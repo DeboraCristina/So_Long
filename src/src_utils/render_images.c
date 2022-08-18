@@ -47,11 +47,6 @@ int	render(t_mlx *solong)
 {
 	if (!solong)
 		return (1);
-	if ((solong -> time ++) / 1000 && solong -> status)
-	{
-		move_enemy(solong);
-		solong -> time = 0;
-	}
 	put_images(solong->objs, solong);
 	return (0);
 }

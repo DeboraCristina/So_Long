@@ -41,7 +41,7 @@ void	execute_movement(t_mlx *solong, t_image *entity, t_image *tile)
 	if (entity->id == 2)
 		execute_movement_player(solong, entity, tile);
 	else if (entity->id == 5)
-		execute_movement_enemy(solong, entity, tile);
+		execute_movement_enemy(entity, tile);
 }
 
 void	move(t_mlx *solong, t_image *ent, int mx, int my)

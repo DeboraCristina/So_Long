@@ -50,7 +50,6 @@ int	init_display(t_mlx *solong, t_map *p_map)
 	}
 	solong -> status = 1;
 	solong -> movements = 0;
-	solong -> time = 0;
 	solong -> collectibles = 0;
 	solong -> total_collectibles = ft_count_collectibles(p_map->mapping);
 	return (0);
