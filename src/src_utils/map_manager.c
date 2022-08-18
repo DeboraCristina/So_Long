@@ -6,7 +6,7 @@
 /*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:26:33 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/13 03:57:50 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/18 15:54:42 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	check_map(char *name)
 	else if (!valid_map_elements(name))
 		error = ft_printf("\e[1;91mError\nInvalid map format.\e[0m\n");
 	else if (!minimum_elements(name))
-		error = ft_printf("\e[1;91mError\nMinimum requirements are missing.\e[0m\n");
+		error = ft_printf("\e[1;91mError\nMinimum requirements are missing.\n");
 	if (error)
 		exit(1);
 	close(fd);

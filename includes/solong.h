@@ -6,7 +6,7 @@
 /*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:34:32 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/14 06:32:27 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/18 15:56:06 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define MALLOC 0
 # define INIT 1
 
-int	print_error(int error);
+int		print_error(int error);
 void	put_error(int error);
 
 // objects
@@ -50,7 +50,7 @@ int		key_release(int key, t_mlx *solong);
 int		render(t_mlx *solong);
 
 // window manage
-int	init_display(t_mlx *solong, t_map *p_map);
+int		init_display(t_mlx *solong, t_map *p_map);
 void	events_hook(t_mlx *solong);
 
 // movements
