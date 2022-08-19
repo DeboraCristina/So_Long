@@ -6,7 +6,7 @@
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:53:56 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/18 15:53:59 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/19 02:46:29 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,25 @@ static t_list	*ft_get_enemies(t_list *objs)
 	return (enemies_lst);
 }
 
-void	execute_movement_enemy(t_image *enemy, t_image *tile)
+void	execute_movement_enemy(t_mlx *solong, t_image *enemy, t_image *tile)
 {
+	if (!solong->status)
+		return ;
 	if (tile->id == 0)
 	{
 		ft_swap_int(&tile->id, &enemy->id);
 		ft_swap_int(&tile->dir, &enemy->dir);
 	}
+	else if (tile->id == 2)
+	{
+		tile->id = enemy->id;
+		enemy->id = 0;
+		solong->status = 0;
+	}
 	else
 		enemy->dir = enemy->dir * (-1);
+	if (!solong->status)
+		ft_show_final_message(tile->id);
 }
 
 void	move_enemy(t_mlx *solong)
@@ -53,7 +63,7 @@ void	move_enemy(t_mlx *solong)
 	t_list	*temp;
 	t_image	*enemy;
 
-	if (!solong || !solong->enemies)
+	if (!solong || !solong->enemies || !solong->status)
 		return ;
 	temp_objs = solong->objs;
 	enemies_lst = ft_get_enemies(temp_objs);

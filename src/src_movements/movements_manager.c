@@ -6,7 +6,7 @@
 /*   By: desilva <dede-2231@hotmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:26:27 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/14 06:33:20 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/19 02:39:29 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	execute_movement(t_mlx *solong, t_image *entity, t_image *tile)
 	if (entity->id == 2)
 		execute_movement_player(solong, entity, tile);
 	else if (entity->id == 5)
-		execute_movement_enemy(entity, tile);
+		execute_movement_enemy(solong, entity, tile);
 }
 
 void	move(t_mlx *solong, t_image *ent, int mx, int my)

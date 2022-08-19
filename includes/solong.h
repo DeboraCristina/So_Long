@@ -6,7 +6,7 @@
 /*   By: desilva <deboracristinaproficional1@gma    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:34:32 by desilva           #+#    #+#             */
-/*   Updated: 2022/08/18 15:56:06 by desilva          ###   ########.fr       */
+/*   Updated: 2022/08/19 02:41:28 by desilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_image	*ft_find_objs_by_id(t_list *objs, int id);
 t_image	*ft_find_objs_by_position(t_list *objs, int x, int y);
 void	execute_movement(t_mlx *solong, t_image *player, t_image *tile);
 void	execute_movement_player(t_mlx *solong, t_image *player, t_image *tile);
-void	execute_movement_enemy(t_image *enemy, t_image *tile);
+void	execute_movement_enemy(t_mlx *solong, t_image *enemy, t_image *tile);
 void	move(t_mlx *solong, t_image *ent, int mx, int my);
 void	move_player(int key, t_mlx *solong);
 void	move_enemy(t_mlx *solong);
