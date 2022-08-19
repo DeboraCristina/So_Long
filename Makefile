@@ -42,7 +42,7 @@ MLX_FLAGS	=	-lmlx  -lXext -lX11 -lm
 
 LFTNAME		=	libft_bonus.a
 
-LFTPATH		= ./Libft
+LFTPATH		= ./libft
 
 LFTFLAGS	=	-I$(LFTPATH) -L$(LFTPATH) -lft_bonus
 
@@ -51,6 +51,7 @@ LFTFLAGS	=	-I$(LFTPATH) -L$(LFTPATH) -lft_bonus
 
 $(NAME):	$(LFTNAME) $(OBJS) $(MLX_PATH)
 	@$(COMPILER) $(OBJS) $(MLX_FLAGS) $(LFTFLAGS) -g3 -o $(NAME)
+	@echo "\033[1;92mSo Long Created\033[0m"
 
 $(LFTNAME):
 	@$(MAKENOPRINT) bonus -C $(LFTPATH)
@@ -63,6 +64,7 @@ clean:
 fclean:	clean
 	@$(MAKENOPRINT) fclean -C $(LFTPATH)
 	@$(REMOVE) $(NAME)
+	@echo "\033[1;93mSo Long Removed\033[0m"
 
 re:	fclean	all
 
